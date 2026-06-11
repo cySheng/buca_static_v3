@@ -58,8 +58,8 @@
 .doc-main ol{padding-left:22px;}
 
 /* numbered step blocks */
-.steps{list-style:none;counter-reset:step;padding:0;margin:24px 0;}
-.steps>li{position:relative;padding:0 0 26px 56px;margin:0;counter-increment:step;}
+.steps{list-style:none;counter-reset:step;padding:0 !important;margin:24px 0;}
+.steps>li{position:relative;padding:0 0 26px 56px !important;margin:0;counter-increment:step;}
 .steps>li::before{content:counter(step);position:absolute;left:0;top:-2px;width:34px;height:34px;border-radius:50%;background:var(--brand-deep);color:#fff;font-family:var(--sans);font-weight:700;font-size:15px;display:grid;place-items:center;}
 .steps>li::after{content:"";position:absolute;left:16.5px;top:36px;bottom:6px;width:2px;background:var(--line);}
 .steps>li:last-child::after{display:none;}
