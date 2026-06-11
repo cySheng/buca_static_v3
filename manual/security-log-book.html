@@ -5,7 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
 <title>The security log book — BUCA Manual</title>
-<meta name="description" content="Log car entries, read your weekly auto-generated security report, and understand your members in BUCA.">
+<meta name="description" content="Log car entries at the gate, search past visits, and export records — step-by-step guide for security guards and committee admins.">
+<link rel="canonical" href="https://buca.my/manual/security-log-book.html">
+<link rel="icon" href="/assets/favicon.ico">
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://buca.my/manual/security-log-book.html">
+<meta property="og:title" content="The security log book — BUCA Manual">
+<meta property="og:description" content="Log car entries at the gate, search past visits, and export records — step-by-step guide for security guards and committee admins.">
+<meta property="og:image" content="https://buca.my/assets/og-image.png">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The security log book — BUCA Manual">
+<meta name="twitter:description" content="Log car entries at the gate, search past visits, and export records — step-by-step guide for security guards and committee admins.">
+<meta name="twitter:image" content="https://buca.my/assets/og-image.png">
 <link rel="stylesheet" href="../assets/buca.css">
 <link rel="stylesheet" href="../assets/manual.css">
 <script>document.documentElement.className += ' js-anim';</script>
@@ -14,7 +27,6 @@
 
 <header class="doc-head">
   <div class="wrap">
-    <!-- LOGO: replace ../assets/buca-logo.png with your own logo file -->
     <a class="brand-link" href="../index.html"><img src="../assets/buca-logo.png" alt="BUCA"></a>
     <span class="sep"></span>
     <span class="lbl">Manual</span>
@@ -27,7 +39,7 @@
     <div class="side-group">
       <div class="gh">Getting started</div>
       <a class="side-link" href="importing-data.html">Importing your data</a>
-      <span class="side-link soon">Creating your association</span>
+      <a class="side-link" href="creating-your-association.html">Creating your association</a>
       <span class="side-link soon">Adding committee members</span>
     </div>
     <div class="side-group">
@@ -48,69 +60,141 @@
     <div class="crumb"><a href="index.html">Manual</a> <span>/</span> Security &amp; reporting</div>
     <div class="doc-tag">Security</div>
     <h1>The security log book</h1>
-    <p class="doc-lead">Your guardhouse log, digitised. Record car entries as they happen, let BUCA build your weekly security report automatically, and see at a glance how your members are tracking.</p>
+    <p class="doc-lead">Record every car that enters the gate. Search past visits, export records for committee review, and let BUCA build your security statistics automatically.</p>
     <div class="doc-meta">
-      <span class="pill">⏱ 8 minute read</span>
-      <span class="pill pill-blue">Security committee</span>
+      <span class="pill">⏱ 6 minute read</span>
+      <span class="pill pill-blue">Security guard</span>
+      <span class="pill pill-green">Committee admin</span>
     </div>
 
     <h2 id="overview">What the log book gives you</h2>
-    <p>Every car that comes through the gate can be recorded against a household. From those entries, BUCA puts together three useful things:</p>
+    <p>Every car entry you record feeds three things:</p>
     <ul>
-      <li><strong>A live log</strong> of car entries you can search and filter.</li>
-      <li><strong>A weekly security report</strong>, generated for you automatically.</li>
-      <li><strong>Member insights</strong> — who's active, who's new, and who has dropped off.</li>
+      <li><strong>A live log</strong> — every entry in reverse order, searchable by car plate.</li>
+      <li><strong>Automatic statistics</strong> — daily, weekly, and monthly summaries built from your entries.</li>
+      <li><strong>Export to CSV</strong> — send a date-range export to your email for committee records.</li>
     </ul>
 
-    <h2 id="logging">Logging a car entry</h2>
+    <h2 id="logging">Logging a car entry <span class="role-badge">Security guard</span></h2>
+
+    <h3>Step 1 — Open the log book</h3>
     <ol class="steps">
-      <li><span class="st">Open the log book</span><p>Go to <strong>Security → Log book</strong>. The most recent entries sit at the top.</p></li>
-      <li><span class="st">Add an entry</span><p>Tap <strong>New entry</strong> and type the car plate. If the plate is already linked to a household, BUCA fills in the resident automatically.</p></li>
-      <li><span class="st">Confirm</span><p>The entry is timestamped and saved. That's it — it immediately feeds this week's report.</p></li>
+      <li><span class="st">Log in</span><p>Log in at <a class="inl" href="https://app.buca.my">app.buca.my</a> with your email and password.</p></li>
+      <li><span class="st">Go to the log book</span><p>You will land on the <strong>Security Log Book</strong> page. If not, tap <strong>Security Log Book</strong> from the menu.</p></li>
+    </ol>
+
+    <div class="callout note">
+      <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+      <div><span class="ct">Security guard vs committee view</span><p>Security guards land on the entry screen. Committee admins land on the <strong>Security Dashboard</strong> and can tap <strong>Security Log Book</strong> from the dashboard menu.</p></div>
+    </div>
+
+    <h3>Step 2 — Enter the car plate</h3>
+    <ol class="steps">
+      <li><span class="st">Type the car plate number</span><p>In the <strong>car_number_plate</strong> field (e.g. <em>WVP13011</em>), type the plate of the vehicle entering the gate. Letters are automatically converted to uppercase.</p></li>
+      <li><span class="st">Tap Create</span><p>Tap the <strong>Create</strong> button. BUCA checks if the plate has visited before.</p></li>
     </ol>
 
     <div class="callout tip">
       <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2Z"/><path d="M9 21h6"/></svg>
-      <div><span class="ct">Plates linked during import</span><p>If you added car plates when you <a class="inl" href="importing-data.html">imported your data</a>, the log will recognise residents straight away — no extra setup.</p></div>
+      <div><span class="ct">Known plates are pre-filled</span><p>If the plate has visited before, the <strong>House No.</strong>, <strong>Street</strong>, and visit category are filled in automatically. You can still edit them before saving.</p></div>
     </div>
 
-    <h2 id="report">The weekly security report</h2>
-    <p>Each week, BUCA totals up the entries and produces a report on its own — no spreadsheet wrangling. You'll see car entries by day, the busiest times, and how this week compares to the last.</p>
-
-    <div class="fig">
-      <div style="padding:20px 22px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-          <b style="font-family:var(--serif);font-size:16px;">Car entries · week of 1 June</b>
-          <span class="pill pill-blue">Auto-generated</span>
-        </div>
-        <div style="display:flex;align-items:flex-end;gap:10px;height:96px;">
-          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="width:100%;height:48%;background:var(--brand-soft);border-radius:5px 5px 0 0;display:block;"></span><span style="font-size:11px;color:var(--ink-faint);">Mon</span></div>
-          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="width:100%;height:62%;background:var(--brand-soft);border-radius:5px 5px 0 0;display:block;"></span><span style="font-size:11px;color:var(--ink-faint);">Tue</span></div>
-          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="width:100%;height:80%;background:var(--brand);border-radius:5px 5px 0 0;display:block;"></span><span style="font-size:11px;color:var(--ink-faint);">Wed</span></div>
-          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="width:100%;height:54%;background:var(--brand-soft);border-radius:5px 5px 0 0;display:block;"></span><span style="font-size:11px;color:var(--ink-faint);">Thu</span></div>
-          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="width:100%;height:70%;background:var(--brand-soft);border-radius:5px 5px 0 0;display:block;"></span><span style="font-size:11px;color:var(--ink-faint);">Fri</span></div>
-          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="width:100%;height:100%;background:var(--brand);border-radius:5px 5px 0 0;display:block;"></span><span style="font-size:11px;color:var(--ink-faint);">Sat</span></div>
-          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="width:100%;height:44%;background:var(--brand-soft);border-radius:5px 5px 0 0;display:block;"></span><span style="font-size:11px;color:var(--ink-faint);">Sun</span></div>
-        </div>
-      </div>
-    </div>
-    <p class="fig-cap">A weekly report builds itself from the entries you log.</p>
-
-    <h2 id="members">Understanding your members</h2>
-    <p>Beyond the raw count, BUCA looks at the pattern of entries to help you read your community at the gate:</p>
-    <table>
-      <thead><tr><th>Group</th><th>What it tells you</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Loyal members</strong></td><td>Households that come through regularly — your steady, active residents.</td></tr>
-        <tr><td><strong>New members</strong></td><td>Plates seen for the first time recently — new residents or newly registered cars.</td></tr>
-        <tr><td><strong>Dropouts</strong></td><td>Households that used to be active but have gone quiet — worth a friendly check-in.</td></tr>
-      </tbody>
-    </table>
+    <h3>Step 3 — Fill in the entry details</h3>
+    <p>You will see a summary of the plate's history (total visits, last visit date) and the entry form:</p>
+    <ol class="steps">
+      <li><span class="st">Check the IC box if needed</span><p>If the visitor needs to provide identification, the <strong>IC</strong> checkbox appears. Tick it if ID was checked.</p></li>
+      <li><span class="st">Enter the house number</span><p>Type the unit number in the <strong>House No.</strong> field (e.g. <em>12A</em>).</p></li>
+      <li><span class="st">Enter the street</span><p>Type the street name in the <strong>Street</strong> field. As you type, matching streets appear — tap one to select it.</p></li>
+      <li><span class="st">Select a category</span><p>Tap a category button to describe the visit:</p>
+        <table>
+          <thead><tr><th>Category</th><th>When to use</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Resident</strong></td><td>Owner or tenant returning home</td></tr>
+            <tr><td><strong>Visitor</strong></td><td>Guest visiting a resident</td></tr>
+            <tr><td><strong>Delivery</strong></td><td>Courier or delivery service</td></tr>
+            <tr><td><strong>Pickup/Drop off</strong></td><td>Short stop to collect or drop someone</td></tr>
+            <tr><td><strong>Contractor</strong></td><td>Tradesperson, maintenance, or repair crew</td></tr>
+            <tr><td><strong>Daycare</strong></td><td>Daycare vehicle</td></tr>
+            <tr><td><strong>BU6</strong></td><td>BU6 area vehicle</td></tr>
+            <tr><td><strong>Non-compliant</strong></td><td>Vehicle that did not follow entry rules</td></tr>
+          </tbody>
+        </table>
+      </li>
+      <li><span class="st">Save the entry</span><p>Tap <strong>Create</strong> to save. You will see <em>"Created log successfully"</em> and return to the log book.</p></li>
+    </ol>
 
     <div class="callout note">
       <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
-      <div><span class="ct">Tidy records for ROS</span><p>The log book sits alongside BUCA's <strong>AGM attendance</strong> tool, so the records your association needs to keep are all in one place. <a class="inl" href="index.html">More on AGM attendance →</a></p></div>
+      <div><span class="ct">Cancelling</span><p>Tap <strong>Cancel</strong> at any time to go back to the log book without saving.</p></div>
     </div>
+
+    <h3>Special case — Registered visitor</h3>
+    <p>If the car plate belongs to a pre-registered visitor, BUCA opens the <strong>Confirm Visitor</strong> screen instead. It shows the visitor's name, number plate, and destination address.</p>
+    <ol class="steps">
+      <li><span class="st">Review the details</span><p>Check that the name and destination address are correct.</p></li>
+      <li><span class="st">Tap Confirm</span><p>Tap <strong>Confirm</strong> to log the visit. Tap <strong>Cancel</strong> if the details do not match.</p></li>
+    </ol>
+
+    <h2 id="viewing">Viewing the log book <span class="role-badge">Committee admin</span></h2>
+    <ol class="steps">
+      <li><span class="st">Open the log book</span><p>From the Security Dashboard, tap <strong>Security Log Book</strong>. The page is titled <strong>Security Log Book</strong> and lists all entries newest first.</p></li>
+      <li><span class="st">Read an entry</span><p>Each row shows two columns:</p>
+        <ul>
+          <li><strong>Visit Details</strong> — house address, car plate, and category</li>
+          <li><strong>Misc. Details</strong> — the name of the guard who logged it and the date/time</li>
+        </ul>
+      </li>
+      <li><span class="st">Browse more entries</span><p>Use the page navigation at the bottom to move between pages.</p></li>
+    </ol>
+
+    <h2 id="search">Searching the log book <span class="role-badge">Security guard</span> <span class="role-badge">Committee admin</span></h2>
+    <ol class="steps">
+      <li><span class="st">Open Search</span><p>From the <strong>Security Log Book</strong> page, tap <strong>Search</strong> in the navigation. The page is titled <strong>Security Search</strong>.</p></li>
+      <li><span class="st">Enter a car plate</span><p>Under <strong>Search Car</strong>, type a plate number in the search field (e.g. <em>WVP1301</em>).</p></li>
+      <li><span class="st">Tap Search</span><p>Tap <strong>Search</strong>. Results appear in two sections:</p>
+        <ul>
+          <li><strong>Houses</strong> — matching households (house number, street, last paid year)</li>
+          <li><strong>Security Logs</strong> — every visit log for that plate (car plate, address, category, logged by, date)</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2 id="export">Exporting log records <span class="role-badge">Committee admin</span></h2>
+    <p>You can export all log entries to a CSV file. BUCA emails it to your account email address.</p>
+    <ol class="steps">
+      <li><span class="st">Open the Export page</span><p>From the <strong>Security Log Book</strong> list page, navigate to <strong>Export Security Logs</strong>.</p></li>
+      <li><span class="st">Set a date range (optional)</span><p>Enter a <strong>Start Date</strong> and <strong>End Date</strong> to limit the export. Leave both blank to export all records.</p></li>
+      <li><span class="st">Tap Export</span><p>Tap <strong>Export</strong>. BUCA queues the export in the background and emails the CSV file to your account email address when it is ready.</p></li>
+    </ol>
+
+    <div class="callout tip">
+      <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2Z"/><path d="M9 21h6"/></svg>
+      <div><span class="ct">Export goes to your email</span><p>The CSV is sent to the email address on your BUCA account — not downloaded directly. Large exports may take a few minutes to arrive.</p></div>
+    </div>
+
+    <h2 id="stats">Security statistics <span class="role-badge">Committee admin</span></h2>
+    <p>BUCA automatically builds summaries from your log entries — no extra action needed:</p>
+    <table>
+      <thead><tr><th>Report</th><th>What it shows</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Live stats</strong></td><td>Current gate activity, refreshed every minute</td></tr>
+        <tr><td><strong>Daily summary</strong></td><td>Entry counts by day</td></tr>
+        <tr><td><strong>Weekly summary</strong></td><td>Entry counts by week</td></tr>
+        <tr><td><strong>Monthly summary</strong></td><td>Entry counts by month</td></tr>
+      </tbody>
+    </table>
+    <p>All reports are available from the <strong>Security Dashboard</strong>.</p>
+
+    <h2 id="problems">Common problems</h2>
+    <table>
+      <thead><tr><th>Problem</th><th>What to do</th></tr></thead>
+      <tbody>
+        <tr><td>Wrong house number or street saved</td><td>Ask your committee admin to edit the entry from the log book list page.</td></tr>
+        <tr><td>Export email did not arrive</td><td>Check your spam folder. If still missing after 10 minutes, try exporting again or contact your committee admin.</td></tr>
+        <tr><td>Car plate not found in Search</td><td>The plate may not have a log entry yet. Spaces in plates are ignored — search without spaces (e.g. <em>WVP1301</em> not <em>WVP 1301</em>).</td></tr>
+        <tr><td>"Confirm Visitor" screen opened but details are wrong</td><td>Tap <strong>Cancel</strong> and log the entry manually so the correct house is recorded.</td></tr>
+      </tbody>
+    </table>
 
     <hr>
 
@@ -132,8 +216,11 @@
     <div class="th">On this page</div>
     <a href="#overview">What it gives you</a>
     <a href="#logging">Logging a car entry</a>
-    <a href="#report">Weekly report</a>
-    <a href="#members">Understanding members</a>
+    <a href="#viewing">Viewing the log book</a>
+    <a href="#search">Searching logs</a>
+    <a href="#export">Exporting records</a>
+    <a href="#stats">Statistics</a>
+    <a href="#problems">Common problems</a>
   </nav>
 </div>
 

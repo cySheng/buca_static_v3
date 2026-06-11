@@ -4,8 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
-<title>Membership payments — BUCA Manual</title>
-<meta name="description" content="How to record, track and export membership payments and security fees in BUCA.">
+<title>How to record your membership payment — BUCA Manual</title>
+<meta name="description" content="How to record your annual membership fee or security fee payment in BUCA as a resident.">
+<link rel="canonical" href="https://buca.my/manual/membership-payments.html">
+<link rel="icon" href="/assets/favicon.ico">
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://buca.my/manual/membership-payments.html">
+<meta property="og:title" content="How to record your membership payment — BUCA Manual">
+<meta property="og:description" content="How to record your annual membership fee or security fee payment in BUCA as a resident.">
+<meta property="og:image" content="https://buca.my/assets/og-image.png">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to record your membership payment — BUCA Manual">
+<meta name="twitter:description" content="How to record your annual membership fee or security fee payment in BUCA as a resident.">
+<meta name="twitter:image" content="https://buca.my/assets/og-image.png">
 <link rel="stylesheet" href="../assets/buca.css">
 <link rel="stylesheet" href="../assets/manual.css">
 <script>document.documentElement.className += ' js-anim';</script>
@@ -14,7 +27,6 @@
 
 <header class="doc-head">
   <div class="wrap">
-    <!-- LOGO: replace ../assets/buca-logo.png with your own logo file -->
     <a class="brand-link" href="../index.html"><img src="../assets/buca-logo.png" alt="BUCA"></a>
     <span class="sep"></span>
     <span class="lbl">Manual</span>
@@ -27,12 +39,13 @@
     <div class="side-group">
       <div class="gh">Getting started</div>
       <a class="side-link" href="importing-data.html">Importing your data</a>
-      <span class="side-link soon">Creating your association</span>
+      <a class="side-link" href="creating-your-association.html">Creating your association</a>
       <span class="side-link soon">Adding committee members</span>
     </div>
     <div class="side-group">
       <div class="gh">Members &amp; payments</div>
-      <a class="side-link active" href="membership-payments.html">Membership payments</a>
+      <a class="side-link active" href="membership-payments.html">Recording a payment</a>
+      <a class="side-link" href="confirming-payments.html">Confirming payments</a>
       <span class="side-link soon">Invoices &amp; vouchers</span>
       <span class="side-link soon">Exporting your data</span>
     </div>
@@ -47,93 +60,120 @@
   <main class="doc-main">
     <div class="crumb"><a href="index.html">Manual</a> <span>/</span> Members &amp; payments</div>
     <div class="doc-tag">Payments</div>
-    <h1>Membership payments</h1>
-    <p class="doc-lead">Whether it's the monthly security fee or an annual membership due, BUCA keeps every payment in one place — so you always know who's paid, who hasn't, and where the money came from.</p>
+    <h1>Recording your membership payment</h1>
+    <p class="doc-lead">After you transfer or pay your annual fee, record it in BUCA so the committee can verify it. Takes about 3 minutes.</p>
     <div class="doc-meta">
-      <span class="pill">⏱ 10 minute read</span>
-      <span class="pill pill-blue">Committee &amp; residents</span>
+      <span class="pill">⏱ 3 minute read</span>
+      <span class="pill pill-blue">Residents</span>
     </div>
 
-    <h2 id="overview">How payments work in BUCA</h2>
-    <p>A payment in BUCA is simply a record that a household paid an amount, on a date, for a reason. There are two ways they get created:</p>
+    <h2 id="before">Before you start</h2>
     <ul>
-      <li><strong>By the committee</strong> — you record a payment when someone pays you cash, bank transfer or cheque.</li>
-      <li><strong>By residents</strong> — residents can record their own payment against their household, which you then confirm.</li>
+      <li>You must be a registered and approved member.</li>
+      <li>The committee must have opened the current fee cycle. If <strong>Add Payment</strong> does not appear in the menu, the cycle is not open yet — contact your committee.</li>
+      <li>Have a photo or screenshot of your payment receipt ready to upload.</li>
     </ul>
-    <p>Either way, the payment lands in the same place and counts towards that household's status.</p>
 
-    <div class="callout note">
-      <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
-      <div><span class="ct">Security fee or membership due?</span><p>BUCA treats them the same way — you just label each payment with what it's <em>for</em>. That keeps your collection for the security fund separate from annual dues when you export.</p></div>
-    </div>
-
-    <h2 id="record">Recording a payment</h2>
+    <h2 id="steps">Steps</h2>
     <ol class="steps">
-      <li><span class="st">Find the household</span><p>Go to <strong>Payments → Record payment</strong> and search for the member or house number.</p></li>
-      <li><span class="st">Enter the details</span><p>Fill in the <strong>amount</strong>, the <strong>date paid</strong>, and what it's <strong>for</strong> (for example, <em>Security fee — June 2026</em>). Add a note if there's anything to remember.</p></li>
-      <li><span class="st">Save</span><p>The payment is recorded instantly and the household's status updates to <strong>Paid</strong> for that period.</p></li>
+      <li>
+        <span class="st">Open the payment form</span>
+        <p>In the left sidebar, click <strong>Add Payment</strong>.</p>
+      </li>
+
+      <li>
+        <span class="st">Confirm your house address</span>
+        <p>You will see the <strong>Choose House</strong> screen. Your house number and street are pre-filled. Check that they are correct, then click <strong>Continue</strong>.</p>
+        <p>![Screenshot: Choose House screen with House Number and Street fields pre-filled](TODO-choose-house.png)</p>
+      </li>
+
+      <li>
+        <span class="st">Enter your car plate numbers</span>
+        <p>Set <strong>Total Car Stickers</strong> to the number of vehicles you are registering, then fill in each <strong>Number Plate</strong> field.</p>
+        <p>If your household paid last year, the previous plate numbers are pre-filled — update them if any vehicles have changed.</p>
+        <p>Click <strong>Continue</strong>.</p>
+        <p>![Screenshot: Total Car Stickers dropdown and number plate fields](TODO-select-cars.png)</p>
+      </li>
+
+      <li>
+        <span class="st">Fill in your payment details</span>
+        <p>Under <strong>Payment Details</strong>, fill in:</p>
+        <ul>
+          <li><strong>Payment Receipt</strong> — tap the upload area and choose your receipt photo or screenshot.</li>
+          <li><strong>Payment Method</strong> — select <em>Cash</em>, <em>Cheque</em>, <em>Online Transfer</em>, or <em>Qr Pay</em>.</li>
+          <li><strong>Payment Date</strong> — the date you actually made the payment.</li>
+          <li><strong>Cheque Number</strong> — only if you paid by cheque.</li>
+        </ul>
+        <p>Under <strong>Other Details</strong>, add a <strong>Remarks</strong> if there is anything the committee should know (optional).</p>
+        <p>![Screenshot: Payment Details section with receipt upload, payment method, and payment date fields](TODO-payment-details.png)</p>
+
+        <div class="callout note">
+          <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+          <div><span class="ct">Don't forget the receipt</span><p>A warning banner appears at the top if you have not uploaded a receipt. The committee needs this to confirm your payment.</p></div>
+        </div>
+      </li>
+
+      <li>
+        <span class="st">Save your payment</span>
+        <p>Click <strong>Save</strong>. Your payment is submitted and the committee will be notified.</p>
+        <p>![Screenshot: Save button at the bottom of the payment form](TODO-save-payment.png)</p>
+      </li>
     </ol>
 
-    <div class="fig">
-      <div style="padding:18px 20px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
-          <b style="font-family:var(--serif);font-size:16px;">Security fee · June 2026</b>
-          <span class="pill pill-blue">86% collected</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px solid var(--line);">
-          <div style="width:30px;height:30px;border-radius:50%;background:#3E7CB1;display:grid;place-items:center;color:#fff;font-size:12px;font-weight:700;">AR</div>
-          <div style="flex:1;"><b style="font-size:14.5px;">Aisyah Rahman</b><div style="font-size:12px;color:var(--ink-faint);">No. 14, Jalan Melur</div></div>
-          <span style="font-weight:700;font-size:14px;">RM 50</span>
-          <span style="font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;background:#E1F0E8;color:#1d6e4c;">Paid</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px solid var(--line);">
-          <div style="width:30px;height:30px;border-radius:50%;background:#2E8B63;display:grid;place-items:center;color:#fff;font-size:12px;font-weight:700;">SK</div>
-          <div style="flex:1;"><b style="font-size:14.5px;">Suresh Kumar</b><div style="font-size:12px;color:var(--ink-faint);">No. 3, Jalan Kenanga</div></div>
-          <span style="font-weight:700;font-size:14px;">RM 50</span>
-          <span style="font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;background:#FBEAD7;color:#a05a1f;">Due</span>
-        </div>
-      </div>
-    </div>
-    <p class="fig-cap">At a glance: who's paid this period and who's still due.</p>
-
-    <h2 id="status">Seeing who's paid and who's due</h2>
-    <p>The <strong>Payments</strong> screen shows your whole association for the period you choose. Each household is marked <strong>Paid</strong>, <strong>Due</strong> or <strong>Partial</strong>, and the collection rate sits right at the top. Filter to just the <em>Due</em> list when it's time to send reminders.</p>
-
-    <h2 id="residents">Letting residents record their own</h2>
-    <p>To save the committee work, residents can log their own payment from their account — handy after a bank transfer. It appears in your <strong>Pending</strong> list for you to confirm, so you stay in control of what counts.</p>
+    <h2 id="after">What happens next</h2>
+    <p>Your payment appears in the committee's review list. Once they verify your receipt and confirm it, you will receive an official receipt by email and your membership is active for the year.</p>
+    <p>You can check on your payment status any time by opening it from <strong>Add Payment</strong>. The status shows as <strong>Pending</strong> until the committee confirms it.</p>
 
     <div class="callout tip">
       <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-      <div><span class="ct">Fewer "did you get my payment?" messages</span><p>When residents can see their own status and record transfers, the committee's WhatsApp goes a lot quieter.</p></div>
+      <div><span class="ct">Need to change something?</span><p>You can edit your house, car plates, or payment details any time before the committee confirms. Open your payment and click the <strong>✏️ Edit</strong> link next to the item you want to change.</p></div>
     </div>
 
-    <h2 id="export">Exporting your payments</h2>
-    <p>Need the numbers for a committee meeting, the treasurer's report or ROS? Press <strong>Export</strong> on the Payments screen and BUCA gives you the full list as a spreadsheet — every payment, who paid, when, and what for — with one click.</p>
-    <p>You can also store invoices and generate printable <strong>payment vouchers</strong> to keep your books audit-ready. <a class="inl" href="index.html">Read the invoices &amp; vouchers guide</a> for that.</p>
+    <h2 id="problems">Common problems</h2>
+    <table>
+      <thead><tr><th>Problem</th><th>What to do</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Add Payment</strong> does not appear in the menu</td>
+          <td>The committee has not opened the fee cycle yet. Contact your committee admin.</td>
+        </tr>
+        <tr>
+          <td>Payment still shows <strong>Pending</strong> after you submitted it</td>
+          <td>The committee has not confirmed it yet. Payments only become active after committee confirmation. Give them a day or two.</td>
+        </tr>
+        <tr>
+          <td>Receipt email never arrived after confirmation</td>
+          <td>Check your spam folder. If nothing after 1 hour, check your profile email address is correct, or ask the committee to follow up.</td>
+        </tr>
+        <tr>
+          <td>You need to change who the payment is for</td>
+          <td>Only committee members can change the payer name. Ask your committee to update it.</td>
+        </tr>
+      </tbody>
+    </table>
 
     <hr>
 
     <div class="help">
       <div class="ht">
-        <h3>Questions about collecting fees?</h3>
-        <p>We're happy to walk your treasurer through it. Reach out any time — help is free.</p>
+        <h3>Questions about your payment?</h3>
+        <p>We're happy to help. Reach out any time — help is free.</p>
       </div>
       <a class="btn btn-primary" href="#">Contact the team</a>
     </div>
 
     <div class="pager">
       <a href="importing-data.html"><div class="pk">← Previous</div><div class="pt">Importing your data</div></a>
-      <a class="nx" href="security-log-book.html"><div class="pk">Next →</div><div class="pt">Security log book</div></a>
+      <a class="nx" href="confirming-payments.html"><div class="pk">Next →</div><div class="pt">Confirming payments</div></a>
     </div>
   </main>
 
   <nav class="doc-toc" aria-label="On this page">
     <div class="th">On this page</div>
-    <a href="#overview">How payments work</a>
-    <a href="#record">Recording a payment</a>
-    <a href="#status">Paid &amp; due</a>
-    <a href="#residents">Resident self-record</a>
-    <a href="#export">Exporting</a>
+    <a href="#before">Before you start</a>
+    <a href="#steps">Steps</a>
+    <a href="#after">What happens next</a>
+    <a href="#problems">Common problems</a>
   </nav>
 </div>
 

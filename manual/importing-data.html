@@ -5,7 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
 <title>Importing your data — BUCA Manual</title>
-<meta name="description" content="A step-by-step guide to importing your members, households and payments into BUCA from a spreadsheet.">
+<meta name="description" content="A step-by-step guide to importing your members, households and payments into BUCA from a CSV file.">
+<link rel="canonical" href="https://buca.my/manual/importing-data.html">
+<link rel="icon" href="/assets/favicon.ico">
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://buca.my/manual/importing-data.html">
+<meta property="og:title" content="Importing your data — BUCA Manual">
+<meta property="og:description" content="A step-by-step guide to importing your members, households and payments into BUCA from a CSV file.">
+<meta property="og:image" content="https://buca.my/assets/og-image.png">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Importing your data — BUCA Manual">
+<meta name="twitter:description" content="A step-by-step guide to importing your members, households and payments into BUCA from a CSV file.">
+<meta name="twitter:image" content="https://buca.my/assets/og-image.png">
 <link rel="stylesheet" href="../assets/buca.css">
 <link rel="stylesheet" href="../assets/manual.css">
 <script>document.documentElement.className += ' js-anim';</script>
@@ -28,7 +41,7 @@
     <div class="side-group">
       <div class="gh">Getting started</div>
       <a class="side-link active" href="importing-data.html">Importing your data</a>
-      <span class="side-link soon">Creating your association</span>
+      <a class="side-link" href="creating-your-association.html">Creating your association</a>
       <span class="side-link soon">Adding committee members</span>
     </div>
     <div class="side-group">
@@ -50,11 +63,10 @@
     <div class="crumb"><a href="index.html">Manual</a> <span>/</span> Getting started</div>
     <div class="doc-tag">Most requested guide</div>
     <h1>Importing your data</h1>
-    <p class="doc-lead">Moving your association onto BUCA starts with bringing your existing records across. This guide walks you through it from blank spreadsheet to a fully populated database — and yes, real human assistance is provided at every step.</p>
+    <p class="doc-lead">Moving your association onto BUCA starts with bringing your existing records across. This guide shows you how to prepare a CSV file and upload it — BUCA will create all your households, members, car registrations and payment records in one go.</p>
     <div class="doc-meta">
       <span class="pill">⏱ About 20 minutes</span>
       <span class="pill pill-blue">Committee admin</span>
-      <span class="pill pill-free">Assistance included</span>
     </div>
 
     <div class="callout tip">
@@ -63,56 +75,70 @@
     </div>
 
     <h2 id="before">Before you begin</h2>
-    <p>Importing pulls three kinds of records into BUCA at once. It helps to have them gathered before you start:</p>
+    <p>The import brings three kinds of records into BUCA at once:</p>
     <ul>
-      <li><strong>Households</strong> — the homes in your area (address or house number).</li>
-      <li><strong>Members</strong> — the residents linked to each household, with a contact number.</li>
-      <li><strong>Payments</strong> <em>(optional)</em> — any security fees or membership dues you've already collected and want on record.</li>
+      <li><strong>Members</strong> — residents with their name, mobile number and email.</li>
+      <li><strong>Households</strong> — the house number and street each member lives on.</li>
+      <li><strong>Car plates</strong> <em>(optional)</em> — vehicles registered to each member.</li>
+      <li><strong>Payment record</strong> <em>(optional)</em> — the membership fee amount and date paid.</li>
     </ul>
-    <p>You'll need <strong>committee access</strong> to your association in BUCA. If you haven't created your association yet, do that first — it takes a couple of minutes.</p>
+    <p>You will need <strong>committee admin access</strong> to your association in BUCA to run an import.</p>
 
     <div class="callout note">
       <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
-      <div><span class="ct">Already using a spreadsheet?</span><p>Perfect — that's exactly what BUCA imports. You don't need to start from scratch; you'll be copying your existing columns into our template.</p></div>
+      <div><span class="ct">One import at a time</span><p>BUCA processes imports in the background. If an import is still running, the upload form will be hidden and you will see the message "Cannot import any new data. Data is still being imported." Wait for the current import to finish before uploading a new file.</p></div>
     </div>
 
-    <h2 id="step1">Step 1 · Download the BUCA template</h2>
-    <p>The template is a spreadsheet laid out exactly the way BUCA expects to read it. Using it means your import will line up correctly the first time.</p>
-    <div class="dl-row">
-      <div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13l2 2 4-4"/></svg></div>
-      <div class="meta"><b>BUCA_Import_Template.xlsx</b><span>Found under Members → Import → Download template</span></div>
-      <a class="btn btn-ghost" href="#">Where to find it</a>
-    </div>
-    <p>Open it in Excel, Numbers or Google Sheets — whatever you already use. You'll see one row of headings and a few example rows to show you the format. <strong>Leave the heading row exactly as it is.</strong></p>
+    <h2 id="step1">Step 1 · Download the sample CSV</h2>
+    <p>Start with BUCA's sample file — it has all the column headings in the exact order BUCA expects.</p>
+    <ol class="steps">
+      <li><span class="st">Go to <strong>Settings</strong></span><p>Log in and click <strong>Settings</strong> in the main navigation.</p></li>
+      <li><span class="st">Open <strong>Data Import</strong></span><p>On the Settings page, click <strong>Data Import</strong>.</p>
+        <img src="TODO-settings-data-import.png" alt="Screenshot: Settings page with Data Import option highlighted">
+      </li>
+      <li><span class="st">Click <strong>+ New Import</strong></span><p>This opens the import screen.</p></li>
+      <li><span class="st">Click <strong>Download Sample</strong></span><p>Your browser will download a file called <code>2018.csv</code>. Open it in Excel, Google Sheets, or Numbers. You'll use it as your template.</p>
+        <img src="TODO-import-new-download-sample.png" alt="Screenshot: Upload Excel File page showing the Download Sample button and file upload form">
+      </li>
+    </ol>
 
-    <h3 id="columns">Understanding the columns</h3>
-    <p>Here's what each column means. Required columns must be filled for every row; optional ones can be left blank.</p>
+    <h2 id="columns">Understanding the columns</h2>
+    <p>The sample file contains one row of headings. <strong>Do not change, delete or reorder the headings.</strong> Add your data below them, one member per row.</p>
+
     <table>
       <thead>
-        <tr><th>Column</th><th>Required</th><th>What goes here</th></tr>
+        <tr><th>Column name</th><th>Required</th><th>What goes here</th></tr>
       </thead>
       <tbody>
-        <tr><td><code>House No</code></td><td>Yes</td><td>The unit or house number, e.g. <code>14</code> or <code>A-12-3</code>.</td></tr>
-        <tr><td><code>Street</code></td><td>Yes</td><td>Street name, e.g. <code>Jalan Melur</code>.</td></tr>
-        <tr><td><code>Member Name</code></td><td>Yes</td><td>The resident's full name as you'd like it to appear.</td></tr>
-        <tr><td><code>Phone</code></td><td>Yes</td><td>A contact number, e.g. <code>012-345 6789</code>.</td></tr>
-        <tr><td><code>Email</code></td><td>No</td><td>Used for receipts and reminders, if you have it.</td></tr>
-        <tr><td><code>Car Plate</code></td><td>No</td><td>One or more plates, separated by a comma.</td></tr>
-        <tr><td><code>Role</code></td><td>No</td><td><code>Owner</code> or <code>Tenant</code>. Defaults to Owner if blank.</td></tr>
+        <tr><td><code>Name</code></td><td>Yes</td><td>The member's full name.</td></tr>
+        <tr><td><code>No</code></td><td>Yes</td><td>House or unit number, e.g. <code>14</code> or <code>12A</code>.</td></tr>
+        <tr><td><code>Jalan</code></td><td>Yes</td><td>Street name, e.g. <code>Jalan Melur</code>.</td></tr>
+        <tr><td><code>Mobile No</code></td><td>Yes</td><td>Contact number, e.g. <code>012-345 6789</code>. Spaces and dashes are fine — BUCA strips them.</td></tr>
+        <tr><td><code>Email address</code></td><td>No</td><td>Member's email. Used for receipts and login. If left blank, BUCA assigns a placeholder — the member can update it later.</td></tr>
+        <tr><td><code>House Tel</code></td><td>No</td><td>Home landline number, if any.</td></tr>
+        <tr><td><code>Date</code></td><td>Yes</td><td>Date of membership fee payment, e.g. <code>01/06/2026</code>.</td></tr>
+        <tr><td><code>Amount</code></td><td>Yes</td><td>Amount paid in RM, e.g. <code>50</code>.</td></tr>
+        <tr><td><code>Receipt Date</code></td><td>No</td><td>Date the receipt was issued, if different from payment date.</td></tr>
+        <tr><td><code>Cheque #</code></td><td>No</td><td>Cheque number, if payment was by cheque.</td></tr>
+        <tr><td><code>3Car Sticker</code> – <code>16Car Sticker</code></td><td>No</td><td>Car plate numbers, one per column, e.g. <code>WXY1234</code>. Fill left to right; leave the rest blank.</td></tr>
+        <tr><td><code>Total Car Stickers</code></td><td>No</td><td>Count of car stickers issued. Can be left blank — BUCA counts the filled car columns automatically.</td></tr>
       </tbody>
     </table>
 
     <div class="callout warn">
       <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>
-      <div><span class="ct">Don't rename or reorder the headings</span><p>BUCA matches your data using the heading names in the top row. If a heading is changed, deleted or moved, that column won't be recognised. Add your data below the headings and leave the top row untouched.</p></div>
+      <div><span class="ct">The file name must be the membership year</span><p>BUCA uses your file's name to decide which membership year the data belongs to. Name the file after the year you are importing — for example, <code>2026.csv</code>. A file named anything else (like <code>members.csv</code> or <code>import.csv</code>) will create a fee cycle with the wrong year.</p></div>
     </div>
 
-    <h2 id="step2">Step 2 · Fill in your members</h2>
-    <p>Copy your existing records into the template, one resident per row. A few pointers that save time later:</p>
+    <h2 id="step2">Step 2 · Fill in your data</h2>
+    <p>Copy your existing records into the file, one member per row. A few things that save trouble later:</p>
     <ul>
-      <li><strong>One row per member.</strong> If a household has two residents you want on record, give them a row each — repeat the same <code>House No</code> and <code>Street</code> on both.</li>
-      <li><strong>Keep house numbers consistent.</strong> Decide on a format (<code>14</code> vs <code>No. 14</code>) and stick to it, so BUCA groups households correctly.</li>
-      <li><strong>Multiple cars?</strong> Put every plate in the one <code>Car Plate</code> cell, separated by commas: <code>WXY 1234, VBA 88</code>.</li>
+      <li><strong>One row per member.</strong> If two residents share the same household, give each their own row. Use the same <code>No</code> and <code>Jalan</code> values on both rows — BUCA will link them to the same house.</li>
+      <li><strong>Be consistent with house numbers.</strong> Decide on a format — <code>14</code> or <code>No. 14</code> — and use it the same way every time, so BUCA groups households correctly.</li>
+      <li><strong>Car plates go in the numbered columns.</strong> Put the first plate in <code>3Car Sticker</code>, the second in <code>4Car Sticker</code>, and so on. Leave the remaining columns blank.</li>
+      <li><strong>If you include an email, it must be unique.</strong> Two rows cannot share the same email address. If a member has no email, leave the column blank — BUCA assigns a placeholder automatically.</li>
+      <li><strong>Save as CSV.</strong> Before uploading, save or export the file in CSV format (<code>.csv</code>), not as an Excel file (<code>.xlsx</code>).</li>
+      <li><strong>Rename the file to the membership year.</strong> For example, if you are importing 2026 data, the file must be called <code>2026.csv</code>.</li>
     </ul>
 
     <div class="fig">
@@ -120,61 +146,54 @@
         <span style="width:9px;height:9px;border-radius:50%;background:#d9cdb8;display:inline-block;"></span>
         <span style="width:9px;height:9px;border-radius:50%;background:#d9cdb8;display:inline-block;"></span>
         <span style="width:9px;height:9px;border-radius:50%;background:#d9cdb8;display:inline-block;"></span>
-        <b style="margin-left:8px;font-size:12px;color:var(--ink-faint);font-weight:600;">BUCA_Import_Template.xlsx</b>
+        <b style="margin-left:8px;font-size:12px;color:var(--ink-faint);font-weight:600;">2026.csv</b>
       </div>
       <table style="margin:0;border:none;border-radius:0;font-size:13px;">
-        <thead><tr><th>House No</th><th>Street</th><th>Member Name</th><th>Phone</th><th>Car Plate</th></tr></thead>
+        <thead><tr><th>Name</th><th>No</th><th>Jalan</th><th>Mobile No</th><th>Email address</th><th>Date</th><th>Amount</th><th>3Car Sticker</th></tr></thead>
         <tbody>
-          <tr><td>14</td><td>Jalan Melur</td><td>Aisyah Rahman</td><td>012-345 6789</td><td>WXY 1234</td></tr>
-          <tr><td>27</td><td>Jalan Cempaka</td><td>Lim Wei Jie</td><td>013-998 1020</td><td>VBA 88, JKL 9</td></tr>
-          <tr><td>3</td><td>Jalan Kenanga</td><td>Suresh Kumar</td><td>011-220 4567</td><td></td></tr>
+          <tr><td>Aisyah Rahman</td><td>14</td><td>Jalan Melur</td><td>012-345 6789</td><td>aisyah@email.com</td><td>01/06/2026</td><td>50</td><td>WXY1234</td></tr>
+          <tr><td>Lim Wei Jie</td><td>27</td><td>Jalan Cempaka</td><td>013-998 1020</td><td>weijie@email.com</td><td>02/06/2026</td><td>50</td><td>VBA88</td></tr>
+          <tr><td>Suresh Kumar</td><td>3</td><td>Jalan Kenanga</td><td>011-220 4567</td><td>suresh@email.com</td><td>02/06/2026</td><td>50</td><td></td></tr>
         </tbody>
       </table>
     </div>
-    <p class="fig-cap">A correctly filled template — headings untouched, one resident per row.</p>
+    <p class="fig-cap">A correctly filled file — headings untouched, named <code>2026.csv</code>, one member per row.</p>
 
-    <h2 id="step3">Step 3 · Upload to BUCA</h2>
-    <p>Once your spreadsheet is ready, bring it into BUCA:</p>
+    <h2 id="step3">Step 3 · Upload the file</h2>
     <ol class="steps">
-      <li><span class="st">Open the import screen</span><p>In your association, go to <strong>Members → Import</strong>. This is the same place you downloaded the template.</p></li>
-      <li><span class="st">Choose your file</span><p>Click <strong>Upload spreadsheet</strong> and select the file you just filled in. BUCA accepts <code>.xlsx</code> and <code>.csv</code>.</p></li>
-      <li><span class="st">Let BUCA read it</span><p>BUCA scans every row and matches your columns to its fields. This usually takes a few seconds.</p></li>
+      <li><span class="st">Go back to <strong>Settings → Data Import → + New Import</strong></span><p>If you navigated away, follow the same path as Step 1.</p></li>
+      <li><span class="st">Click <strong>File</strong> and select your CSV</span><p>Choose the file you prepared — for example, <code>2026.csv</code>.</p>
+        <img src="TODO-import-file-selected.png" alt="Screenshot: Upload Excel File page with a file selected in the file field">
+      </li>
+      <li><span class="st">Click <strong>Upload</strong></span><p>BUCA queues your file for processing and takes you to the Members list. The import runs in the background — you do not need to stay on the page.</p>
+        <img src="TODO-members-list-after-import.png" alt="Screenshot: Members list page immediately after clicking Upload">
+      </li>
     </ol>
-
-    <h2 id="step4">Step 4 · Review &amp; confirm</h2>
-    <p>Before anything is saved, BUCA shows you a preview of exactly what will be created — how many households, members and cars — and flags any rows that need a second look. <strong>Nothing is imported until you confirm.</strong></p>
-    <ul>
-      <li><strong>Green rows</strong> are ready to import.</li>
-      <li><strong>Amber rows</strong> have a warning (for example, a missing phone number) — you can fix them now or import and tidy up later.</li>
-      <li><strong>Red rows</strong> have an error that must be fixed before that row can be imported.</li>
-    </ul>
-    <p>Fix anything you can in the spreadsheet, re-upload, and when the preview looks right, press <strong>Confirm import</strong>. Your members appear in BUCA straight away.</p>
 
     <div class="callout tip">
       <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-      <div><span class="ct">You can import more than once</span><p>New residents next month? Just fill in a fresh template with only the new rows and import again. BUCA adds them alongside your existing members.</p></div>
+      <div><span class="ct">Import runs in the background</span><p>Large files can take a minute or two. You can keep using BUCA while it runs. Check the status any time under <strong>Settings → Data Import</strong> — the table shows when the import started, when it finished, how many records were created, and any errors.</p></div>
     </div>
 
-    <h2 id="payments">Importing past payments (optional)</h2>
-    <p>If you'd like your existing payment history in BUCA from day one, you can import that too. Use the <strong>Payments</strong> tab of the template and list one payment per row, matching each to a member by their <code>House No</code> and <code>Member Name</code>.</p>
-    <table>
-      <thead><tr><th>Column</th><th>What goes here</th></tr></thead>
-      <tbody>
-        <tr><td><code>House No</code></td><td>Must match a household you've imported.</td></tr>
-        <tr><td><code>Amount</code></td><td>The amount paid in RM, e.g. <code>50.00</code>.</td></tr>
-        <tr><td><code>Paid On</code></td><td>Date of payment, <code>DD/MM/YYYY</code>.</td></tr>
-        <tr><td><code>For</code></td><td>What it was for, e.g. <code>Security fee — June 2026</code>.</td></tr>
-      </tbody>
-    </table>
+    <h2 id="step4">Step 4 · Check the result</h2>
+    <ol class="steps">
+      <li><span class="st">Go to <strong>Settings → Data Import</strong></span><p>You will see a table of all imports for your association.</p>
+        <img src="TODO-data-imports-index.png" alt="Screenshot: Data Imports page showing a table with Start, End, Created and Errors columns">
+      </li>
+      <li><span class="st">Check the <strong>End</strong> column</span><p>A blank End time means the import is still running. Once it shows a time, the import has finished.</p></li>
+      <li><span class="st">Check the <strong>Created</strong> column</span><p>This shows how many payment records were created. Compare it to the number of rows in your file.</p></li>
+      <li><span class="st">Check the <strong>Errors</strong> column</span><p>If there is an error, BUCA shows the row number and the reason — for example, <code>Row number: 5 - Record is invalid</code>. Fix that row in your file and import it again.</p></li>
+    </ol>
 
     <h2 id="troubleshooting">Common issues &amp; how to fix them</h2>
     <table>
       <thead><tr><th>What you see</th><th>What it means &amp; the fix</th></tr></thead>
       <tbody>
-        <tr><td>"Column not recognised"</td><td>A heading in the top row was changed or moved. Re-download the template and copy your data under the original headings.</td></tr>
-        <tr><td>"Missing required field"</td><td>A required cell (House No, Street, Member Name or Phone) is blank in that row. Fill it in and re-upload.</td></tr>
-        <tr><td>Duplicate members appear</td><td>The same person was listed twice, or a house number was typed two ways. Standardise your <code>House No</code> format and remove repeats.</td></tr>
-        <tr><td>Payment won't match a member</td><td>The <code>House No</code> on the payment row doesn't match any imported household. Check for typos or import the household first.</td></tr>
+        <tr><td>Upload form is hidden; message says "Cannot import any new data. Data is still being imported."</td><td>An import is still running. Wait for it to finish — check <strong>Settings → Data Import</strong> and refresh until the <strong>End</strong> time appears.</td></tr>
+        <tr><td>Errors column shows "Row number: X — …"</td><td>A required field was blank or invalid on that row. Open your CSV, fix row X, save, and upload again.</td></tr>
+        <tr><td>Members appear but the membership year is wrong</td><td>The file was not named after the year. Rename it (e.g. <code>2026.csv</code>) and upload again. Remove the incorrectly created fee cycle from <strong>Membership Fee</strong> first.</td></tr>
+        <tr><td>Duplicate members appear</td><td>The same mobile number or email was used for two different rows. BUCA matches on mobile number first, then email. Make each unique and re-import.</td></tr>
+        <tr><td>Created count is lower than expected</td><td>Some rows may have failed silently before the error row. Check that all required columns — Name, No, Jalan, Mobile No, Email address, Date, Amount — are filled for every row.</td></tr>
       </tbody>
     </table>
 
@@ -198,11 +217,11 @@
   <nav class="doc-toc" aria-label="On this page">
     <div class="th">On this page</div>
     <a href="#before">Before you begin</a>
-    <a href="#step1">1 · Download the template</a>
-    <a href="#step2">2 · Fill in your members</a>
-    <a href="#step3">3 · Upload to BUCA</a>
-    <a href="#step4">4 · Review &amp; confirm</a>
-    <a href="#payments">Importing past payments</a>
+    <a href="#step1">1 · Download the sample CSV</a>
+    <a href="#columns">Understanding the columns</a>
+    <a href="#step2">2 · Fill in your data</a>
+    <a href="#step3">3 · Upload the file</a>
+    <a href="#step4">4 · Check the result</a>
     <a href="#troubleshooting">Common issues</a>
   </nav>
 </div>

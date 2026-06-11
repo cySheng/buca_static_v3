@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Confirming membership payments — BUCA Manual</title>
+<meta name="description" content="How committee members review, confirm, and track membership payments in BUCA.">
+<link rel="canonical" href="https://buca.my/manual/confirming-payments.html">
+<link rel="icon" href="/assets/favicon.ico">
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://buca.my/manual/confirming-payments.html">
+<meta property="og:title" content="Confirming membership payments — BUCA Manual">
+<meta property="og:description" content="How committee members review, confirm, and track membership payments in BUCA.">
+<meta property="og:image" content="https://buca.my/assets/og-image.png">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Confirming membership payments — BUCA Manual">
+<meta name="twitter:description" content="How committee members review, confirm, and track membership payments in BUCA.">
+<meta name="twitter:image" content="https://buca.my/assets/og-image.png">
+<link rel="stylesheet" href="../assets/buca.css">
+<link rel="stylesheet" href="../assets/manual.css">
+<script>document.documentElement.className += ' js-anim';</script>
+</head>
+<body>
+
+<header class="doc-head">
+  <div class="wrap">
+    <a class="brand-link" href="../index.html"><img src="../assets/buca-logo.png" alt="BUCA"></a>
+    <span class="sep"></span>
+    <span class="lbl">Manual</span>
+    <a class="back" href="index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg> All guides</a>
+  </div>
+</header>
+
+<div class="doc">
+  <aside class="doc-side">
+    <div class="side-group">
+      <div class="gh">Getting started</div>
+      <a class="side-link" href="importing-data.html">Importing your data</a>
+      <a class="side-link" href="creating-your-association.html">Creating your association</a>
+      <span class="side-link soon">Adding committee members</span>
+    </div>
+    <div class="side-group">
+      <div class="gh">Members &amp; payments</div>
+      <a class="side-link" href="membership-payments.html">Recording a payment</a>
+      <a class="side-link active" href="confirming-payments.html">Confirming payments</a>
+      <span class="side-link soon">Invoices &amp; vouchers</span>
+      <span class="side-link soon">Exporting your data</span>
+    </div>
+    <div class="side-group">
+      <div class="gh">Security &amp; reporting</div>
+      <a class="side-link" href="security-log-book.html">Security log book</a>
+      <span class="side-link soon">Weekly reports</span>
+      <span class="side-link soon">AGM attendance</span>
+    </div>
+  </aside>
+
+  <main class="doc-main">
+    <div class="crumb"><a href="index.html">Manual</a> <span>/</span> Members &amp; payments</div>
+    <div class="doc-tag">Payments</div>
+    <h1>Confirming membership payments</h1>
+    <p class="doc-lead">When a resident submits a payment, the committee verifies the receipt and confirms it — activating their membership for the year and sending them an official receipt by email.</p>
+    <div class="doc-meta">
+      <span class="pill">⏱ 5 minute read</span>
+      <span class="pill pill-blue">Committee members</span>
+    </div>
+
+    <div class="callout note">
+      <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+      <div><span class="ct">Committee access only</span><p>Only Power Users (committee members) and Admins can confirm payments. Residents can submit and edit their payment, but cannot confirm it themselves.</p></div>
+    </div>
+
+    <!-- ───────────────────── PAYMENT STATUS FLOW ───────────────────── -->
+
+    <h2 id="status">Payment status flow</h2>
+    <p>Every payment moves through these stages:</p>
+
+    <div class="fig">
+      <div style="padding: 20px 24px; display: flex; gap: 0; align-items: stretch; flex-wrap: wrap;">
+        <div style="flex:1; min-width:100px; text-align:center; padding:14px 8px;">
+          <div style="font-size:22px; margin-bottom:6px;">📝</div>
+          <div style="font-weight:700; font-size:13px; margin-bottom:4px;">Pending</div>
+          <div style="font-size:12px; color:var(--ink-faint);">No receipt uploaded yet.</div>
+        </div>
+        <div style="display:flex;align-items:center;color:var(--ink-faint);padding:0 4px;">→</div>
+        <div style="flex:1; min-width:100px; text-align:center; padding:14px 8px;">
+          <div style="font-size:22px; margin-bottom:6px;">📎</div>
+          <div style="font-weight:700; font-size:13px; margin-bottom:4px;">Ready</div>
+          <div style="font-size:12px; color:var(--ink-faint);">Receipt uploaded. Awaiting your review.</div>
+        </div>
+        <div style="display:flex;align-items:center;color:var(--ink-faint);padding:0 4px;">→</div>
+        <div style="flex:1; min-width:100px; text-align:center; padding:14px 8px;">
+          <div style="font-size:22px; margin-bottom:6px;">✅</div>
+          <div style="font-weight:700; font-size:13px; margin-bottom:4px;">Confirmed</div>
+          <div style="font-size:12px; color:var(--ink-faint);">Verified. Receipt emailed. Access unlocked.</div>
+        </div>
+        <div style="display:flex;align-items:center;color:var(--ink-faint);padding:0 4px;">→</div>
+        <div style="flex:1; min-width:100px; text-align:center; padding:14px 8px;">
+          <div style="font-size:22px; margin-bottom:6px;">🏷️</div>
+          <div style="font-weight:700; font-size:13px; margin-bottom:4px;">Issued</div>
+          <div style="font-size:12px; color:var(--ink-faint);">Gate tag / sticker handed out.</div>
+        </div>
+      </div>
+    </div>
+
+    <p>Payments awaiting your review appear in the <strong>Unconfirmed</strong> tab. This is where you spend most of your time.</p>
+
+    <!-- ──────────────────── METHOD 1: SINGLE ───────────────────────── -->
+
+    <h2 id="confirm-single">Method 1 — Confirm from the payment record</h2>
+    <p>Use this when you need to review one specific payment in detail, or when a resident calls to follow up.</p>
+
+    <ol class="steps">
+      <li>
+        <span class="st">Open the Payments list</span>
+        <p>In the sidebar, click <strong>Payments</strong>. This opens the <strong>Unconfirmed</strong> tab — all payments that have a receipt or payment method but are not yet confirmed.</p>
+        <p>![Screenshot: Payments sidebar link and Unconfirmed tab showing payment list](TODO-unconfirmed-list.png)</p>
+      </li>
+
+      <li>
+        <span class="st">Open a payment</span>
+        <p>Click the payment you want to review.</p>
+      </li>
+
+      <li>
+        <span class="st">Check the receipt</span>
+        <p>Click the link next to <strong>Payment Method</strong> (it shows the method name and a 📎 icon) to open the uploaded receipt. Verify the amount, date, and transfer details match what is on record.</p>
+        <p>![Screenshot: Payment detail page highlighting the receipt link and payment fields](TODO-payment-detail.png)</p>
+      </li>
+
+      <li>
+        <span class="st">Confirm</span>
+        <p>If everything matches, click <strong>Confirm</strong> at the bottom of the page. The status changes to <strong>Confirmed</strong> and a receipt email is sent to the resident automatically.</p>
+      </li>
+    </ol>
+
+    <!-- ──────────────────── METHOD 2: QUICK CONFIRM ────────────────── -->
+
+    <h2 id="quick-confirm">Method 2 — Quick Confirmation (recommended)</h2>
+    <p>Quick Confirmation is a dedicated screen for processing many payments at once. It shows one payment at a time — receipt and details side by side — and moves to the next automatically after each confirm. Use this at the start of collection season when payments come in all at once.</p>
+
+    <ol class="steps">
+      <li>
+        <span class="st">Open Quick Confirmation</span>
+        <p>In the sidebar, click <strong>Payments</strong> to expand the menu, then click <strong>Quick Confirmation</strong>.</p>
+        <p>![Screenshot: Sidebar with Payments expanded showing Quick Confirmation link](TODO-quick-confirm-nav.png)</p>
+      </li>
+
+      <li>
+        <span class="st">Review the payment</span>
+        <p>The first unconfirmed payment with a receipt is shown. Check the receipt image against the displayed details — amount, date, payer, and house.</p>
+        <p>![Screenshot: Quick Confirmation screen with receipt image on left and payment details on right](TODO-quick-confirm-screen.png)</p>
+      </li>
+
+      <li>
+        <span class="st">Fix details if needed</span>
+        <p>If anything needs correcting (for example the amount is wrong), click <strong>Edit</strong> to update it inline without leaving the page, then save.</p>
+      </li>
+
+      <li>
+        <span class="st">Confirm</span>
+        <p>Click <strong>Confirm</strong>. The payment is confirmed, a receipt email is sent to the resident, and the screen advances to the next payment automatically.</p>
+      </li>
+
+      <li>
+        <span class="st">Repeat until done</span>
+        <p>Continue until the screen shows <em>No more payments left</em> — all unconfirmed payments with receipts have been processed.</p>
+      </li>
+    </ol>
+
+    <div class="callout tip">
+      <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      <div><span class="ct">Removing a duplicate or test payment</span><p>On the Quick Confirmation screen, click <strong>Destroy</strong> to delete a payment. A confirmation dialog will appear before anything is deleted.</p></div>
+    </div>
+
+    <!-- ────────────────────── CREATING ON BEHALF ───────────────────── -->
+
+    <h2 id="create-behalf">Creating a payment on behalf of a resident</h2>
+    <p>If a resident cannot do it themselves (e.g. they are not tech-savvy), you can create the payment for them.</p>
+
+    <ol class="steps">
+      <li>
+        <span class="st">Open the payment form</span>
+        <p>In the sidebar, click <strong>Add Payment</strong>.</p>
+      </li>
+      <li>
+        <span class="st">Search for the house</span>
+        <p>On the <strong>Choose House</strong> screen, type the house number and street, then click <strong>Continue</strong>.</p>
+      </li>
+      <li>
+        <span class="st">Select the payer</span>
+        <p>Search for the resident by name, email, or mobile number and select them from the table, then click <strong>Continue</strong>.</p>
+      </li>
+      <li>
+        <span class="st">Enter car plates</span>
+        <p>Set <strong>Total Car Stickers</strong> and fill in each <strong>Number Plate</strong>, then click <strong>Continue</strong>.</p>
+      </li>
+      <li>
+        <span class="st">Fill in payment details and confirm</span>
+        <p>Fill in <strong>Payment Method</strong>, <strong>Payment Date</strong>, upload the <strong>Payment Receipt</strong>, then click <strong>Confirm</strong> to confirm the payment immediately.</p>
+      </li>
+    </ol>
+
+    <!-- ──────────────────────── ISSUE STICKERS ─────────────────────── -->
+
+    <h2 id="issue">Marking stickers and gate tags as issued</h2>
+    <p>After handing out the physical car sticker or gate tag, record it so you know who has collected theirs.</p>
+
+    <ol class="steps">
+      <li>
+        <span class="st">Open the Unissued list</span>
+        <p>In the sidebar, click <strong>Payments</strong> and open the <strong>Unissued</strong> tab.</p>
+      </li>
+      <li>
+        <span class="st">Select the payments to mark</span>
+        <p>Tick each household that has collected their sticker or tag.</p>
+      </li>
+      <li>
+        <span class="st">Mark as issued</span>
+        <p>Click <strong>Issue</strong>. Those payments move to the <strong>Issued</strong> list.</p>
+        <p>![Screenshot: Unissued tab with checkboxes selected and Issue button highlighted](TODO-issue-stickers.png)</p>
+      </li>
+    </ol>
+
+    <!-- ──────────────────────── COMMON PROBLEMS ────────────────────── -->
+
+    <h2 id="problems">Common problems</h2>
+    <table>
+      <thead><tr><th>Problem</th><th>What to do</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Quick Confirmation shows "No payments available"</td>
+          <td>All payments with receipts have already been confirmed, or no residents have uploaded receipts yet. Check the <strong>Pending</strong> tab for payments still missing a receipt.</td>
+        </tr>
+        <tr>
+          <td>⚠️ Missing Attachment warning on a payment</td>
+          <td>The resident selected Online Transfer, Cheque, or QR Pay but did not upload a receipt image. Ask them to edit the payment and attach one, or upload it on their behalf.</td>
+        </tr>
+        <tr>
+          <td>Payment confirmed but resident says they did not get the receipt email</td>
+          <td>The email is only sent if the resident has logged in at least once. Ask them to log in, then check their spam folder. The receipt is also always viewable on the website.</td>
+        </tr>
+        <tr>
+          <td>Need to correct a confirmed payment</td>
+          <td>Confirmed payments cannot be edited through the standard form. Use <strong>Edit</strong> on the Quick Confirmation screen, or contact an Admin to make corrections.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <div class="help">
+      <div class="ht">
+        <h3>Questions about confirming payments?</h3>
+        <p>We're happy to walk your committee through it. Reach out any time — help is free.</p>
+      </div>
+      <a class="btn btn-primary" href="#">Contact the team</a>
+    </div>
+
+    <div class="pager">
+      <a href="membership-payments.html"><div class="pk">← Previous</div><div class="pt">Recording a payment</div></a>
+      <a class="nx" href="security-log-book.html"><div class="pk">Next →</div><div class="pt">Security log book</div></a>
+    </div>
+  </main>
+
+  <nav class="doc-toc" aria-label="On this page">
+    <div class="th">On this page</div>
+    <a href="#status">Payment status flow</a>
+    <a href="#confirm-single">Method 1 — Single payment</a>
+    <a href="#quick-confirm">Method 2 — Quick Confirmation</a>
+    <a href="#create-behalf">Creating on behalf of resident</a>
+    <a href="#issue">Issuing stickers &amp; tags</a>
+    <a href="#problems">Common problems</a>
+  </nav>
+</div>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-bottom" style="border-top:none;margin-top:0;padding-top:0;">
+      <span>© 2026 BUCA. Made in Malaysia.</span>
+      <span><a href="../index.html">app.buca.my</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/manual.js"></script>
+</body>
+</html>
