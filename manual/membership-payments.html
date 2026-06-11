@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Membership payments — BUCA Manual</title>
+<meta name="description" content="How to record, track and export membership payments and security fees in BUCA.">
+<link rel="stylesheet" href="../assets/buca.css">
+<link rel="stylesheet" href="../assets/manual.css">
+<script>document.documentElement.className += ' js-anim';</script>
+</head>
+<body>
+
+<header class="doc-head">
+  <div class="wrap">
+    <!-- LOGO: replace ../assets/buca-logo.png with your own logo file -->
+    <a class="brand-link" href="../index.html"><img src="../assets/buca-logo.png" alt="BUCA"></a>
+    <span class="sep"></span>
+    <a class="lbl" href="index.html" style="color:var(--ink-soft)">Manual</a>
+    <a class="back" href="index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg> All guides</a>
+  </div>
+</header>
+
+<div class="doc">
+  <aside class="doc-side">
+    <div class="side-group">
+      <div class="gh">Getting started</div>
+      <a class="side-link" href="importing-data.html">Importing your data</a>
+      <a class="side-link" href="index.html">Creating your association</a>
+      <a class="side-link" href="index.html">Adding committee members</a>
+    </div>
+    <div class="side-group">
+      <div class="gh">Members &amp; payments</div>
+      <a class="side-link active" href="membership-payments.html">Membership payments</a>
+      <a class="side-link" href="index.html">Invoices &amp; vouchers</a>
+      <a class="side-link" href="index.html">Exporting your data</a>
+    </div>
+    <div class="side-group">
+      <div class="gh">Security &amp; reporting</div>
+      <a class="side-link" href="security-log-book.html">Security log book</a>
+      <a class="side-link" href="index.html">Weekly reports</a>
+      <a class="side-link" href="index.html">AGM attendance</a>
+    </div>
+  </aside>
+
+  <main class="doc-main">
+    <div class="crumb"><a href="index.html">Manual</a> <span>/</span> Members &amp; payments</div>
+    <div class="doc-tag">Payments</div>
+    <h1>Membership payments</h1>
+    <p class="doc-lead">Whether it's the monthly security fee or an annual membership due, BUCA keeps every payment in one place — so you always know who's paid, who hasn't, and where the money came from.</p>
+    <div class="doc-meta">
+      <span class="pill">⏱ 10 minute read</span>
+      <span class="pill pill-blue">Committee &amp; residents</span>
+    </div>
+
+    <h2 id="overview">How payments work in BUCA</h2>
+    <p>A payment in BUCA is simply a record that a household paid an amount, on a date, for a reason. There are two ways they get created:</p>
+    <ul>
+      <li><strong>By the committee</strong> — you record a payment when someone pays you cash, bank transfer or cheque.</li>
+      <li><strong>By residents</strong> — residents can record their own payment against their household, which you then confirm.</li>
+    </ul>
+    <p>Either way, the payment lands in the same place and counts towards that household's status.</p>
+
+    <div class="callout note">
+      <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+      <div><span class="ct">Security fee or membership due?</span><p>BUCA treats them the same way — you just label each payment with what it's <em>for</em>. That keeps your collection for the security fund separate from annual dues when you export.</p></div>
+    </div>
+
+    <h2 id="record">Recording a payment</h2>
+    <ol class="steps">
+      <li><span class="st">Find the household</span><p>Go to <strong>Payments → Record payment</strong> and search for the member or house number.</p></li>
+      <li><span class="st">Enter the details</span><p>Fill in the <strong>amount</strong>, the <strong>date paid</strong>, and what it's <strong>for</strong> (for example, <em>Security fee — June 2026</em>). Add a note if there's anything to remember.</p></li>
+      <li><span class="st">Save</span><p>The payment is recorded instantly and the household's status updates to <strong>Paid</strong> for that period.</p></li>
+    </ol>
+
+    <div class="fig">
+      <div style="padding:18px 20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+          <b style="font-family:var(--serif);font-size:16px;">Security fee · June 2026</b>
+          <span class="pill pill-blue">86% collected</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px solid var(--line);">
+          <div style="width:30px;height:30px;border-radius:50%;background:#3E7CB1;display:grid;place-items:center;color:#fff;font-size:12px;font-weight:700;">AR</div>
+          <div style="flex:1;"><b style="font-size:14.5px;">Aisyah Rahman</b><div style="font-size:12px;color:var(--ink-faint);">No. 14, Jalan Melur</div></div>
+          <span style="font-weight:700;font-size:14px;">RM 50</span>
+          <span style="font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;background:#E1F0E8;color:#1d6e4c;">Paid</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px solid var(--line);">
+          <div style="width:30px;height:30px;border-radius:50%;background:#2E8B63;display:grid;place-items:center;color:#fff;font-size:12px;font-weight:700;">SK</div>
+          <div style="flex:1;"><b style="font-size:14.5px;">Suresh Kumar</b><div style="font-size:12px;color:var(--ink-faint);">No. 3, Jalan Kenanga</div></div>
+          <span style="font-weight:700;font-size:14px;">RM 50</span>
+          <span style="font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;background:#FBEAD7;color:#a05a1f;">Due</span>
+        </div>
+      </div>
+    </div>
+    <p class="fig-cap">At a glance: who's paid this period and who's still due.</p>
+
+    <h2 id="status">Seeing who's paid and who's due</h2>
+    <p>The <strong>Payments</strong> screen shows your whole association for the period you choose. Each household is marked <strong>Paid</strong>, <strong>Due</strong> or <strong>Partial</strong>, and the collection rate sits right at the top. Filter to just the <em>Due</em> list when it's time to send reminders.</p>
+
+    <h2 id="residents">Letting residents record their own</h2>
+    <p>To save the committee work, residents can log their own payment from their account — handy after a bank transfer. It appears in your <strong>Pending</strong> list for you to confirm, so you stay in control of what counts.</p>
+
+    <div class="callout tip">
+      <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      <div><span class="ct">Fewer "did you get my payment?" messages</span><p>When residents can see their own status and record transfers, the committee's WhatsApp goes a lot quieter.</p></div>
+    </div>
+
+    <h2 id="export">Exporting your payments</h2>
+    <p>Need the numbers for a committee meeting, the treasurer's report or ROS? Press <strong>Export</strong> on the Payments screen and BUCA gives you the full list as a spreadsheet — every payment, who paid, when, and what for — with one click.</p>
+    <p>You can also store invoices and generate printable <strong>payment vouchers</strong> to keep your books audit-ready. <a class="inl" href="index.html">Read the invoices &amp; vouchers guide</a> for that.</p>
+
+    <hr>
+
+    <div class="help">
+      <div class="ht">
+        <h3>Questions about collecting fees?</h3>
+        <p>We're happy to walk your treasurer through it. Reach out any time — help is free.</p>
+      </div>
+      <a class="btn btn-primary" href="#">Contact the team</a>
+    </div>
+
+    <div class="pager">
+      <a href="importing-data.html"><div class="pk">← Previous</div><div class="pt">Importing your data</div></a>
+      <a class="nx" href="security-log-book.html"><div class="pk">Next →</div><div class="pt">Security log book</div></a>
+    </div>
+  </main>
+
+  <nav class="doc-toc" aria-label="On this page">
+    <div class="th">On this page</div>
+    <a href="#overview">How payments work</a>
+    <a href="#record">Recording a payment</a>
+    <a href="#status">Paid &amp; due</a>
+    <a href="#residents">Resident self-record</a>
+    <a href="#export">Exporting</a>
+  </nav>
+</div>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-bottom" style="border-top:none;margin-top:0;padding-top:0;">
+      <span>© 2026 BUCA. Made in Malaysia.</span>
+      <span><a href="../index.html">app.buca.my</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/manual.js"></script>
+</body>
+</html>

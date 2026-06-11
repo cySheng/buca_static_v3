@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>BUCA Manual — guides for your committee</title>
+<meta name="description" content="Plain-language, step-by-step guides for running your resident association on BUCA.">
+<link rel="stylesheet" href="../assets/buca.css">
+<script>document.documentElement.className += ' js-anim';</script>
+<style>
+/* ============ HERO (mirrors homepage hero) ============ */
+.hero{
+  position:relative;overflow:hidden;padding:72px 0 84px;
+  background:
+    radial-gradient(1100px 540px at 80% -10%, var(--brand-tint) 0%, rgba(241,246,251,0) 60%),
+    radial-gradient(720px 500px at 4% 16%, #FCEFE4 0%, rgba(252,239,228,0) 58%);
+}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;}
+.hero h1{font-size:clamp(36px,4.8vw,60px);letter-spacing:-.02em;margin:20px 0 0;}
+.hero h1 .accent{font-style:italic;color:var(--brand-deep);}
+.hero .lede{font-size:20px;color:var(--ink-soft);margin-top:22px;max-width:36ch;line-height:1.55;}
+.hero-cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;}
+
+/* hero visual — an open guide */
+.gviz{position:relative;}
+.gviz-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-xl);box-shadow:var(--sh-lg);padding:26px 28px 28px;position:relative;z-index:2;}
+.gviz-top{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.gviz-roof{width:40px;height:40px;border-radius:11px;background:var(--brand-soft);display:grid;place-items:center;color:var(--brand-deep);flex:none;}
+.gviz-top .k{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--clay);}
+.gviz-top b{font-family:var(--serif);font-weight:600;font-size:18px;display:block;line-height:1.1;}
+.gviz-title{font-family:var(--serif);font-size:26px;font-weight:600;line-height:1.1;margin-bottom:14px;}
+.gviz-line{height:11px;border-radius:6px;background:var(--paper-2);margin:11px 0;}
+.gviz-step{display:flex;align-items:center;gap:12px;margin:14px 0;}
+.gviz-step .n{width:26px;height:26px;border-radius:50%;background:var(--brand-deep);color:#fff;font-size:13px;font-weight:700;display:grid;place-items:center;flex:none;}
+.gviz-step .b{height:10px;border-radius:5px;background:var(--paper-2);flex:1;}
+.gviz-callout{margin-top:18px;display:flex;gap:11px;align-items:center;background:var(--green-soft);border:1px solid #bfe0cf;border-radius:12px;padding:13px 15px;}
+.gviz-callout svg{color:#2e8b63;flex:none;}
+.gviz-callout span{font-size:13.5px;font-weight:600;color:#205c42;}
+.gviz-float{position:absolute;right:-22px;bottom:-24px;z-index:3;white-space:nowrap;background:var(--card);border:1px solid var(--line);border-radius:15px;box-shadow:var(--sh-md);padding:13px 16px;display:flex;align-items:center;gap:11px;}
+.gviz-float .av{width:30px;height:30px;border-radius:50%;background:var(--clay);color:#fff;font-weight:700;font-size:12px;display:grid;place-items:center;}
+.gviz-float b{font-size:13px;font-weight:600;display:block;line-height:1.2;}
+.gviz-float span{font-size:11.5px;color:var(--ink-faint);}
+
+/* section heads */
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:44px;flex-wrap:wrap;}
+.sec-head h2{font-size:clamp(28px,3.4vw,42px);max-width:18ch;}
+.sec-head p{color:var(--ink-soft);max-width:40ch;font-size:17px;}
+
+/* featured guides */
+.feat-guides{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.gcard{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px 26px 26px;box-shadow:var(--sh-sm);transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;}
+.gcard:hover{transform:translateY(-4px);box-shadow:var(--sh-md);border-color:var(--line-strong);}
+.gcard .ic{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;background:var(--brand-soft);color:var(--brand-deep);}
+.gcard:nth-child(2) .ic{background:var(--clay-soft);color:var(--clay-deep);}
+.gcard:nth-child(3) .ic{background:var(--green-soft);color:#1d6e4c;}
+.gcard .k{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--clay);}
+.gcard h3{font-size:21px;margin:10px 0 8px;}
+.gcard p{font-size:15px;color:var(--ink-soft);line-height:1.55;flex:1;}
+.gcard .go{margin-top:18px;display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:14.5px;color:var(--brand-deep);}
+.gcard:hover .go{gap:11px;}
+
+/* browse by topic (sand band) */
+.topics-band{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.cat{margin-top:42px;}
+.cat:first-of-type{margin-top:0;}
+.cat .ch{display:flex;align-items:baseline;gap:14px;margin-bottom:18px;}
+.cat h3{font-family:var(--serif);font-size:24px;font-weight:600;}
+.cat .csub{font-size:14.5px;color:var(--ink-faint);}
+.topics{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;}
+.topic{display:flex;align-items:center;gap:13px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;}
+a.topic:hover{transform:translateX(4px);box-shadow:var(--sh-sm);border-color:var(--line-strong);}
+.topic .ti{width:34px;height:34px;border-radius:10px;background:var(--brand-soft);color:var(--brand-deep);display:grid;place-items:center;flex:none;}
+.topic.soon .ti{background:var(--paper-2);color:var(--ink-faint);}
+.topic .tt{flex:1;font-weight:600;font-size:15.5px;color:var(--ink);}
+.topic.soon{opacity:.82;}
+.topic.soon .tt{color:var(--ink-soft);font-weight:500;}
+.topic .arr{color:var(--brand);flex:none;}
+.soon-pill{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);background:var(--paper-2);border:1px solid var(--line);padding:3px 9px;border-radius:999px;}
+
+/* CTA band */
+.cta{text-align:center;padding:100px 0;background:var(--paper);}
+.cta h2{font-size:clamp(30px,3.8vw,48px);max-width:18ch;margin:0 auto;}
+.cta p{color:var(--ink-soft);font-size:18px;margin:18px auto 0;max-width:46ch;}
+.cta .hero-cta{justify-content:center;margin-top:30px;}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;gap:54px;}
+  .feat-guides{grid-template-columns:1fr;}
+  .topics{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-head">
+  <div class="wrap">
+    <!-- LOGO: replace ../assets/buca-logo.png with your own logo file -->
+    <a class="brand-link" href="../index.html" aria-label="BUCA home"><img src="../assets/buca-logo.png" alt="BUCA"></a>
+    <nav class="nav">
+      <a href="../index.html#features">Features</a>
+      <a href="../index.html#how">How it works</a>
+      <a href="index.html" style="color:var(--ink);font-weight:600;">Manual</a>
+      <a href="../index.html#free">Pricing</a>
+    </nav>
+    <div class="head-cta">
+      <a class="btn btn-primary" href="#">Create your association</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">The BUCA manual</span>
+      <h1>Guides for the people who <span class="accent">run the place.</span></h1>
+      <p class="lede">Friendly, plain-language walkthroughs for every part of BUCA — no jargon, no IT degree required. Written for volunteer committees.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="importing-data.html">Start with importing data <svg class="arr" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost btn-lg" href="#topics">Browse by topic</a>
+      </div>
+    </div>
+
+    <!-- hero visual: an open guide -->
+    <div class="gviz reveal">
+      <div class="gviz-card">
+        <div class="gviz-top">
+          <div class="gviz-roof"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
+          <div><span class="k">Getting started</span><b>Importing your data</b></div>
+        </div>
+        <div class="gviz-line" style="width:92%"></div>
+        <div class="gviz-line" style="width:78%"></div>
+        <div class="gviz-step"><span class="n">1</span><span class="b" style="max-width:70%"></span></div>
+        <div class="gviz-step"><span class="n">2</span><span class="b" style="max-width:84%"></span></div>
+        <div class="gviz-step"><span class="n">3</span><span class="b" style="max-width:60%"></span></div>
+        <div class="gviz-callout">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>Assistance is always provided</span>
+        </div>
+      </div>
+      <div class="gviz-float">
+        <div class="av">⏱</div>
+        <div><b>20 min read</b><span>Step-by-step</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POPULAR GUIDES ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Popular guides</span>
+        <h2>Start with the ones committees ask for most.</h2>
+      </div>
+      <p>Each guide is a short, practical walkthrough — read it once and you'll know exactly what to do.</p>
+    </div>
+    <div class="feat-guides">
+      <a class="gcard reveal" href="importing-data.html">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></div>
+        <div class="k">Most requested</div>
+        <h3>Importing your data</h3>
+        <p>Bring your members, households and existing payments into BUCA from a spreadsheet — the right way, the first time.</p>
+        <span class="go">Read guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="gcard reveal" href="membership-payments.html">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/><path d="M6 15h4"/></svg></div>
+        <div class="k">Payments</div>
+        <h3>Membership payments</h3>
+        <p>Record, track and export your security fees and membership dues — created by committee or by residents themselves.</p>
+        <span class="go">Read guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="gcard reveal" href="security-log-book.html">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div class="k">Security</div>
+        <h3>The security log book</h3>
+        <p>Log car entries at the guardhouse, read your weekly auto-generated report, and understand your members.</p>
+        <span class="go">Read guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BROWSE BY TOPIC (sand band) ============ -->
+<section class="section topics-band" id="topics">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Browse by topic</span>
+        <h2>The whole manual, organised the way you work.</h2>
+      </div>
+      <p>From setting up your association to printing the AGM attendance sheet. More guides are on the way.</p>
+    </div>
+
+    <div class="cat reveal">
+      <div class="ch"><h3>Getting started</h3><span class="csub">Set up and bring your data across.</span></div>
+      <div class="topics">
+        <a class="topic" href="importing-data.html"><span class="ti"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></span><span class="tt">Importing your data</span><svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="topic soon"><span class="ti"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg></span><span class="tt">Creating your association</span><span class="soon-pill">Soon</span></div>
+        <div class="topic soon"><span class="ti"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M4 20c0-3 2.2-5 5-5s5 2 5 5"/><path d="M17 8h4M19 6v4"/></svg></span><span class="tt">Adding committee members</span><span class="soon-pill">Soon</span></div>
+        <div class="topic soon"><span class="ti"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span class="tt">Setting your fee schedule</span><span class="soon-pill">Soon</span></div>
+      </div>
+    </div>
+
+    <div class="cat reveal">
+      <div class="ch"><h3>Members &amp; payments</h3><span class="csub">Collect dues and keep the books tidy.</span></div>
+      <div class="topics">
+        <a class="topic" href="membership-payments.html"><span class="ti"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/></svg></span><span class="tt">Membership payments</span><svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="topic soon"><span class="ti"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span><span class="tt">Invoices &amp; payment vouchers</span><span class="soon-pill">Soon</span></div>
+        <div class="topic soon"><span class="ti"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m8 7 4-4 4 4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></span><span class="tt">Exporting your data</span><span class="soon-pill">Soon</span></div>
+        <div class="topic soon"><span class="ti"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.5 3.1-6 7-6s7 2.5 7 6"/></svg></span><span class="tt">Managing households &amp; cars</span><span class="soon-pill">Soon</span></div>
+      </div>
+    </div>
+
+    <div class="cat reveal">
+      <div class="ch"><h3>Security &amp; reporting</h3><span class="csub">From the guardhouse log to the AGM.</span></div>
+      <div class="topics">
+        <a class="topic" href="security-log-book.html"><span class="ti"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/></svg></span><span class="tt">The security log book</span><svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="topic soon"><span class="ti"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 14l3-3 2 2 3-4"/></svg></span><span class="tt">Weekly security reports</span><span class="soon-pill">Soon</span></div>
+        <div class="topic soon"><span class="ti"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2.5"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span><span class="tt">AGM attendance</span><span class="soon-pill">Soon</span></div>
+        <div class="topic soon"><span class="ti"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5v8l-9 5-9-5V8z"/></svg></span><span class="tt">Understanding your members</span><span class="soon-pill">Soon</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="cta">
+  <div class="wrap-narrow reveal">
+    <span class="eyebrow" style="justify-content:center;">We read every message</span>
+    <h2>Can't find what you need?</h2>
+    <p>We're a small team and assistance is always free. Tell us what's tripping you up and we'll walk your committee through it.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary btn-lg" href="#">Contact the team</a>
+      <a class="btn btn-ghost btn-lg" href="../index.html">Back to home</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <!-- LOGO: replace ../assets/buca-logo.png with your own logo file -->
+        <img src="../assets/buca-logo.png" alt="BUCA">
+        <p>The simplest resident association software around — built for Malaysian neighbourhoods and the volunteers who run them.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <div class="foot-links">
+          <a href="../index.html#features">Features</a>
+          <a href="../index.html#how">How it works</a>
+          <a href="../index.html#free">Pricing</a>
+        </div>
+      </div>
+      <div>
+        <h4>Manual</h4>
+        <div class="foot-links">
+          <a href="index.html">All guides</a>
+          <a href="importing-data.html">Importing data</a>
+          <a href="membership-payments.html">Membership payments</a>
+          <a href="security-log-book.html">Security log book</a>
+        </div>
+      </div>
+      <div>
+        <h4>Association</h4>
+        <div class="foot-links">
+          <a href="#">Create association</a>
+          <a href="#">Contact us</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 BUCA. Made in Malaysia.</span>
+      <span>app.buca.my</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e);});
+    setTimeout(function(){ els.forEach(function(e){ e.classList.add('in'); }); }, 1500);
+  })();
+</script>
+</body>
+</html>

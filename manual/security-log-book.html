@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>The security log book — BUCA Manual</title>
+<meta name="description" content="Log car entries, read your weekly auto-generated security report, and understand your members in BUCA.">
+<link rel="stylesheet" href="../assets/buca.css">
+<link rel="stylesheet" href="../assets/manual.css">
+<script>document.documentElement.className += ' js-anim';</script>
+</head>
+<body>
+
+<header class="doc-head">
+  <div class="wrap">
+    <!-- LOGO: replace ../assets/buca-logo.png with your own logo file -->
+    <a class="brand-link" href="../index.html"><img src="../assets/buca-logo.png" alt="BUCA"></a>
+    <span class="sep"></span>
+    <a class="lbl" href="index.html" style="color:var(--ink-soft)">Manual</a>
+    <a class="back" href="index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg> All guides</a>
+  </div>
+</header>
+
+<div class="doc">
+  <aside class="doc-side">
+    <div class="side-group">
+      <div class="gh">Getting started</div>
+      <a class="side-link" href="importing-data.html">Importing your data</a>
+      <a class="side-link" href="index.html">Creating your association</a>
+      <a class="side-link" href="index.html">Adding committee members</a>
+    </div>
+    <div class="side-group">
+      <div class="gh">Members &amp; payments</div>
+      <a class="side-link" href="membership-payments.html">Membership payments</a>
+      <a class="side-link" href="index.html">Invoices &amp; vouchers</a>
+      <a class="side-link" href="index.html">Exporting your data</a>
+    </div>
+    <div class="side-group">
+      <div class="gh">Security &amp; reporting</div>
+      <a class="side-link active" href="security-log-book.html">Security log book</a>
+      <a class="side-link" href="index.html">Weekly reports</a>
+      <a class="side-link" href="index.html">AGM attendance</a>
+    </div>
+  </aside>
+
+  <main class="doc-main">
+    <div class="crumb"><a href="index.html">Manual</a> <span>/</span> Security &amp; reporting</div>
+    <div class="doc-tag">Security</div>
+    <h1>The security log book</h1>
+    <p class="doc-lead">Your guardhouse log, digitised. Record car entries as they happen, let BUCA build your weekly security report automatically, and see at a glance how your members are tracking.</p>
+    <div class="doc-meta">
+      <span class="pill">⏱ 8 minute read</span>
+      <span class="pill pill-blue">Security committee</span>
+    </div>
+
+    <h2 id="overview">What the log book gives you</h2>
+    <p>Every car that comes through the gate can be recorded against a household. From those entries, BUCA puts together three useful things:</p>
+    <ul>
+      <li><strong>A live log</strong> of car entries you can search and filter.</li>
+      <li><strong>A weekly security report</strong>, generated for you automatically.</li>
+      <li><strong>Member insights</strong> — who's active, who's new, and who has dropped off.</li>
+    </ul>
+
+    <h2 id="logging">Logging a car entry</h2>
+    <ol class="steps">
+      <li><span class="st">Open the log book</span><p>Go to <strong>Security → Log book</strong>. The most recent entries sit at the top.</p></li>
+      <li><span class="st">Add an entry</span><p>Tap <strong>New entry</strong> and type the car plate. If the plate is already linked to a household, BUCA fills in the resident automatically.</p></li>
+      <li><span class="st">Confirm</span><p>The entry is timestamped and saved. That's it — it immediately feeds this week's report.</p></li>
+    </ol>
+
+    <div class="callout tip">
+      <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2Z"/><path d="M9 21h6"/></svg>
+      <div><span class="ct">Plates linked during import</span><p>If you added car plates when you <a class="inl" href="importing-data.html">imported your data</a>, the log will recognise residents straight away — no extra setup.</p></div>
+    </div>
+
+    <h2 id="report">The weekly security report</h2>
+    <p>Each week, BUCA totals up the entries and produces a report on its own — no spreadsheet wrangling. You'll see car entries by day, the busiest times, and how this week compares to the last.</p>
+
+    <div class="fig">
+      <div style="padding:20px 22px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+          <b style="font-family:var(--serif);font-size:16px;">Car entries · week of 1 June</b>
+          <span class="pill pill-blue">Auto-generated</span>
+        </div>
+        <div style="display:flex;align-items:flex-end;gap:10px;height:96px;">
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="width:100%;height:48%;background:var(--brand-soft);border-radius:5px 5px 0 0;display:block;"></span><span style="font-size:11px;color:var(--ink-faint);">Mon</span></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="width:100%;height:62%;background:var(--brand-soft);border-radius:5px 5px 0 0;display:block;"></span><span style="font-size:11px;color:var(--ink-faint);">Tue</span></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="width:100%;height:80%;background:var(--brand);border-radius:5px 5px 0 0;display:block;"></span><span style="font-size:11px;color:var(--ink-faint);">Wed</span></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="width:100%;height:54%;background:var(--brand-soft);border-radius:5px 5px 0 0;display:block;"></span><span style="font-size:11px;color:var(--ink-faint);">Thu</span></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="width:100%;height:70%;background:var(--brand-soft);border-radius:5px 5px 0 0;display:block;"></span><span style="font-size:11px;color:var(--ink-faint);">Fri</span></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="width:100%;height:100%;background:var(--brand);border-radius:5px 5px 0 0;display:block;"></span><span style="font-size:11px;color:var(--ink-faint);">Sat</span></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;"><span style="width:100%;height:44%;background:var(--brand-soft);border-radius:5px 5px 0 0;display:block;"></span><span style="font-size:11px;color:var(--ink-faint);">Sun</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="fig-cap">A weekly report builds itself from the entries you log.</p>
+
+    <h2 id="members">Understanding your members</h2>
+    <p>Beyond the raw count, BUCA looks at the pattern of entries to help you read your community at the gate:</p>
+    <table>
+      <thead><tr><th>Group</th><th>What it tells you</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Loyal members</strong></td><td>Households that come through regularly — your steady, active residents.</td></tr>
+        <tr><td><strong>New members</strong></td><td>Plates seen for the first time recently — new residents or newly registered cars.</td></tr>
+        <tr><td><strong>Dropouts</strong></td><td>Households that used to be active but have gone quiet — worth a friendly check-in.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout note">
+      <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+      <div><span class="ct">Tidy records for ROS</span><p>The log book sits alongside BUCA's <strong>AGM attendance</strong> tool, so the records your association needs to keep are all in one place. <a class="inl" href="index.html">More on AGM attendance →</a></p></div>
+    </div>
+
+    <hr>
+
+    <div class="help">
+      <div class="ht">
+        <h3>Setting up your guardhouse?</h3>
+        <p>We can help you get the log book working the way your security team operates. Just ask.</p>
+      </div>
+      <a class="btn btn-primary" href="#">Contact the team</a>
+    </div>
+
+    <div class="pager">
+      <a href="membership-payments.html"><div class="pk">← Previous</div><div class="pt">Membership payments</div></a>
+      <a class="nx" href="index.html"><div class="pk">Back to →</div><div class="pt">All guides</div></a>
+    </div>
+  </main>
+
+  <nav class="doc-toc" aria-label="On this page">
+    <div class="th">On this page</div>
+    <a href="#overview">What it gives you</a>
+    <a href="#logging">Logging a car entry</a>
+    <a href="#report">Weekly report</a>
+    <a href="#members">Understanding members</a>
+  </nav>
+</div>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-bottom" style="border-top:none;margin-top:0;padding-top:0;">
+      <span>© 2026 BUCA. Made in Malaysia.</span>
+      <span><a href="../index.html">app.buca.my</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/manual.js"></script>
+</body>
+</html>

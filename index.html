@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>BUCA — The simplest resident association software around</title>
+<meta name="description" content="BUCA helps Malaysian resident associations collect security fees, track membership payments, run AGMs and manage their security log book — all in one place. Free for committees.">
+<link rel="stylesheet" href="assets/buca.css">
+<script>document.documentElement.className += ' js-anim';</script>
+<style>
+/* ============ HERO ============ */
+.hero{
+  position:relative;overflow:hidden;padding:84px 0 96px;
+  background:
+    radial-gradient(1100px 540px at 78% -8%, var(--brand-tint) 0%, rgba(241,246,251,0) 60%),
+    radial-gradient(760px 520px at 6% 18%, #FCEFE4 0%, rgba(252,239,228,0) 58%);
+}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.04fr .96fr;gap:56px;align-items:center;}
+.hero h1{font-size:clamp(40px,5.4vw,68px);letter-spacing:-.02em;margin:20px 0 0;}
+.hero h1 .accent{font-style:italic;color:var(--brand-deep);}
+.hero .lede{font-size:20px;color:var(--ink-soft);margin-top:22px;max-width:34ch;line-height:1.55;}
+.hero-cta{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+.hero-trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px;}
+
+/* hero product visual */
+.viz{position:relative;}
+.viz-main{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-xl);
+  box-shadow:var(--sh-lg);padding:22px 22px 26px;position:relative;z-index:2;
+}
+.viz-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;}
+.viz-assoc{display:flex;align-items:center;gap:12px;}
+.viz-roof{width:42px;height:42px;border-radius:12px;background:var(--brand-soft);display:grid;place-items:center;color:var(--brand-deep);flex:none;}
+.viz-assoc b{display:block;font-family:var(--serif);font-weight:600;font-size:18px;line-height:1.1;}
+.viz-assoc span{font-size:13px;color:var(--ink-faint);}
+.viz-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px;}
+.viz-stat{background:var(--card-tint);border:1px solid var(--line);border-radius:14px;padding:13px 14px;}
+.viz-stat .n{font-family:var(--serif);font-size:24px;font-weight:600;line-height:1;color:var(--ink);}
+.viz-stat .l{font-size:11.5px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em;margin-top:6px;font-weight:600;}
+.viz-tablehd{display:flex;justify-content:space-between;align-items:center;margin:4px 2px 10px;}
+.viz-tablehd b{font-size:13.5px;font-weight:700;color:var(--ink-soft);letter-spacing:.02em;}
+.viz-tablehd em{font-style:normal;font-size:12.5px;color:var(--brand-deep);font-weight:600;}
+.viz-row{display:flex;align-items:center;gap:12px;padding:11px 4px;border-top:1px solid var(--line);}
+.viz-ava{width:30px;height:30px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:12px;font-weight:700;color:#fff;font-family:var(--sans);}
+.viz-row .who{flex:1;min-width:0;}
+.viz-row .who b{font-weight:600;font-size:14.5px;display:block;}
+.viz-row .who span{font-size:12px;color:var(--ink-faint);}
+.viz-amt{font-weight:700;font-size:14px;font-variant-numeric:tabular-nums;}
+.tag{font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;letter-spacing:.02em;}
+.tag-paid{background:var(--green-soft);color:#1d6e4c;}
+.tag-due{background:#FBEAD7;color:#a05a1f;}
+
+/* floating mini card */
+.viz-float{
+  position:absolute;right:-26px;bottom:-30px;z-index:3;width:212px;
+  background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh-md);
+  padding:15px 16px;
+}
+.viz-float .ttl{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;}
+.viz-float .ttl svg{color:var(--clay);}
+.bars{display:flex;align-items:flex-end;gap:7px;height:56px;}
+.bars i{flex:1;border-radius:4px 4px 0 0;background:var(--brand-soft);}
+.bars i.hi{background:var(--brand);}
+.viz-float .cap{font-size:11.5px;color:var(--ink-faint);margin-top:10px;}
+
+/* neighbourhood baseline behind */
+.viz-hood{position:absolute;left:-30px;right:-30px;bottom:-58px;z-index:1;color:var(--sand);opacity:.9;}
+
+/* ============ CONTEXT BAND ============ */
+.context{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.context .wrap{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:26px 28px;flex-wrap:wrap;}
+.context .lead{font-family:var(--serif);font-size:19px;color:var(--ink);font-style:italic;}
+.context .terms{display:flex;gap:10px;flex-wrap:wrap;}
+
+/* ============ FEATURES ============ */
+.feat-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:48px;flex-wrap:wrap;}
+.feat-head h2{font-size:clamp(30px,3.6vw,44px);max-width:18ch;}
+.feat-head p{color:var(--ink-soft);max-width:38ch;font-size:17px;}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.feat{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px 26px 30px;
+  box-shadow:var(--sh-sm);transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.feat:hover{transform:translateY(-4px);box-shadow:var(--sh-md);border-color:var(--line-strong);}
+.feat .ic{
+  width:50px;height:50px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;
+  background:var(--brand-soft);color:var(--brand-deep);
+}
+.feat:nth-child(3n+2) .ic{background:var(--clay-soft);color:var(--clay-deep);}
+.feat:nth-child(3n) .ic{background:var(--green-soft);color:#1d6e4c;}
+.feat h3{font-size:21px;margin-bottom:9px;}
+.feat p{color:var(--ink-soft);font-size:15.5px;line-height:1.55;}
+
+/* ============ IMPORT SPOTLIGHT ============ */
+.spot{background:var(--paper-2);}
+.spot .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center;}
+.spot h2{font-size:clamp(28px,3.4vw,42px);margin:16px 0 0;max-width:16ch;}
+.spot p{color:var(--ink-soft);margin-top:18px;font-size:17.5px;max-width:42ch;}
+.spot .flow{margin-top:28px;display:flex;flex-direction:column;gap:14px;}
+.flow-step{display:flex;gap:14px;align-items:flex-start;}
+.flow-step .dot{width:26px;height:26px;border-radius:50%;background:var(--brand-deep);color:#fff;font-size:13px;font-weight:700;display:grid;place-items:center;flex:none;margin-top:2px;}
+.flow-step b{font-weight:600;}
+.flow-step span{color:var(--ink-soft);font-size:15.5px;}
+
+/* import visual: sheet -> buca */
+.importviz{display:flex;align-items:center;gap:18px;}
+.sheet{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh-md);
+  overflow:hidden;flex:1;
+}
+.sheet .sh-bar{display:flex;align-items:center;gap:6px;padding:11px 14px;border-bottom:1px solid var(--line);background:var(--card-tint);}
+.sheet .sh-bar i{width:9px;height:9px;border-radius:50%;background:#d9cdb8;}
+.sheet .sh-bar b{margin-left:8px;font-size:12px;color:var(--ink-faint);font-weight:600;}
+.gridtbl{width:100%;border-collapse:collapse;font-size:12px;font-variant-numeric:tabular-nums;}
+.gridtbl td,.gridtbl th{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:8px 10px;text-align:left;}
+.gridtbl th{background:#F6EFE2;font-weight:700;color:var(--ink-soft);font-size:11px;}
+.gridtbl td:last-child,.gridtbl th:last-child{border-right:none;}
+.gridtbl tr:last-child td{border-bottom:none;}
+.arrowwrap{flex:none;color:var(--clay);display:grid;place-items:center;}
+
+/* ============ HOW IT WORKS ============ */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px;}
+.step{position:relative;padding:30px 26px;border-radius:var(--r-lg);background:var(--card);border:1px solid var(--line);box-shadow:var(--sh-sm);}
+.step .num{font-family:var(--serif);font-size:46px;color:var(--clay);line-height:1;font-weight:500;opacity:.9;}
+.step h3{font-size:21px;margin:14px 0 8px;}
+.step p{color:var(--ink-soft);font-size:15.5px;}
+
+/* ============ FREE BAND ============ */
+.free{background:linear-gradient(180deg,#fff 0%, var(--card-tint) 100%);}
+.free .panel{
+  background:var(--brand-deep);color:#fff;border-radius:var(--r-xl);overflow:hidden;position:relative;
+  display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center;
+  padding:54px 56px;box-shadow:var(--sh-lg);
+}
+.free .panel::after{content:"";position:absolute;right:-60px;top:-60px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.06);}
+.free h2{color:#fff;font-size:clamp(30px,3.6vw,46px);max-width:14ch;}
+.free .panel p{color:#cfe0ef;margin-top:18px;font-size:17px;max-width:46ch;}
+.free-aside{position:relative;z-index:1;}
+.free-quote{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:24px;}
+.free-quote p{color:#eaf2f9;font-family:var(--serif);font-style:italic;font-size:18px;line-height:1.45;margin:0 0 14px;}
+.free-quote .by{display:flex;align-items:center;gap:11px;}
+.free-quote .by .av{width:38px;height:38px;border-radius:50%;background:var(--clay);display:grid;place-items:center;font-weight:700;font-size:14px;color:#fff;}
+.free-quote .by b{font-size:14px;font-weight:600;color:#fff;display:block;}
+.free-quote .by span{font-size:12.5px;color:#bcd0e2;}
+
+/* ============ MANUAL TEASER ============ */
+.man-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px;}
+.man-card{
+  display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:26px;box-shadow:var(--sh-sm);transition:transform .2s ease, box-shadow .2s ease;
+}
+.man-card:hover{transform:translateY(-4px);box-shadow:var(--sh-md);}
+.man-card .k{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--clay);}
+.man-card h3{font-size:20px;margin:12px 0 8px;color:var(--ink);}
+.man-card p{color:var(--ink-soft);font-size:14.5px;line-height:1.55;}
+.man-card .go{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:14.5px;color:var(--brand-deep);}
+.man-card:hover .go{color:var(--clay-deep);}
+
+/* ============ CTA BAND ============ */
+.cta{text-align:center;padding:104px 0;}
+.cta h2{font-size:clamp(32px,4.2vw,54px);max-width:18ch;margin:0 auto;}
+.cta p{color:var(--ink-soft);font-size:19px;margin:20px auto 0;max-width:44ch;}
+.cta .hero-cta{justify-content:center;}
+
+@media (max-width:980px){
+  .feat-grid{grid-template-columns:repeat(2,1fr);}
+  .how-grid{grid-template-columns:1fr;}
+  .man-grid{grid-template-columns:1fr;}
+}
+@media (max-width:860px){
+  .hero{padding:48px 0 80px;}
+  .hero .wrap{grid-template-columns:1fr;gap:64px;}
+  .spot .wrap{grid-template-columns:1fr;gap:40px;}
+  .free .panel{grid-template-columns:1fr;padding:38px 30px;}
+  .viz-float{right:0;}
+}
+@media (max-width:560px){
+  .feat-grid{grid-template-columns:1fr;}
+  .viz-float{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-head">
+  <div class="wrap">
+    <!-- LOGO: replace assets/buca-logo.png with your own logo file -->
+    <a class="brand-link" href="index.html" aria-label="BUCA home">
+      <img src="assets/buca-logo.png" alt="BUCA">
+    </a>
+    <nav class="nav">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="manual/index.html">Manual</a>
+      <a href="#free">Pricing</a>
+    </nav>
+    <div class="head-cta">
+      <a class="btn btn-primary" href="#">Create your association</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow">Resident association software · Malaysia</span>
+      <h1>Run your association<br>without the <span class="accent">headache.</span></h1>
+      <p class="lede">BUCA brings security fees, membership payments, AGMs and your security log book into one calm, simple place — built for the people who volunteer to keep the neighbourhood running.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="#">Create your association <svg class="arr" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost btn-lg" href="manual/index.html">Read the manual</a>
+      </div>
+      <div class="hero-trust">
+        <span class="pill pill-free"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Free for committees</span>
+        <span class="pill pill-blue">Built for RAs &amp; RTs</span>
+        <span class="pill">ROS-ready records</span>
+      </div>
+    </div>
+
+    <!-- product visual -->
+    <div class="viz reveal">
+      <svg class="viz-hood" viewBox="0 0 600 90" fill="currentColor" aria-hidden="true">
+        <path d="M40 90V52l26-22 26 22v38zM150 90V44l30-26 30 26v46zM270 90V56l24-20 24 20v34zM372 90V46l30-25 30 25v44zM486 90V54l26-22 26 22v36z"/>
+      </svg>
+
+      <div class="viz-main">
+        <div class="viz-top">
+          <div class="viz-assoc">
+            <div class="viz-roof">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+            </div>
+            <div>
+              <b>Taman Sri Indah RA</b>
+              <span>312 households · Klang Valley</span>
+            </div>
+          </div>
+          <span class="tag tag-paid">Active</span>
+        </div>
+
+        <div class="viz-stats">
+          <div class="viz-stat"><div class="n">RM38.4k</div><div class="l">Collected</div></div>
+          <div class="viz-stat"><div class="n">86%</div><div class="l">Paid up</div></div>
+          <div class="viz-stat"><div class="n">312</div><div class="l">Members</div></div>
+        </div>
+
+        <div class="viz-tablehd"><b>Security fee · June 2026</b><em>View all</em></div>
+        <div class="viz-row">
+          <div class="viz-ava" style="background:#3E7CB1">AR</div>
+          <div class="who"><b>Aisyah Rahman</b><span>No. 14, Jalan Melur</span></div>
+          <span class="viz-amt">RM 50</span>
+          <span class="tag tag-paid">Paid</span>
+        </div>
+        <div class="viz-row">
+          <div class="viz-ava" style="background:#C36A3D">LW</div>
+          <div class="who"><b>Lim Wei Jie</b><span>No. 27, Jalan Cempaka</span></div>
+          <span class="viz-amt">RM 50</span>
+          <span class="tag tag-paid">Paid</span>
+        </div>
+        <div class="viz-row">
+          <div class="viz-ava" style="background:#2E8B63">SK</div>
+          <div class="who"><b>Suresh Kumar</b><span>No. 3, Jalan Kenanga</span></div>
+          <span class="viz-amt">RM 50</span>
+          <span class="tag tag-due">Due</span>
+        </div>
+      </div>
+
+      <div class="viz-float">
+        <div class="ttl"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 7v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V7z"/></svg> Car entries · this week</div>
+        <div class="bars">
+          <i style="height:44%"></i><i style="height:62%"></i><i class="hi" style="height:88%"></i>
+          <i style="height:54%"></i><i style="height:70%"></i><i class="hi" style="height:100%"></i><i style="height:38%"></i>
+        </div>
+        <div class="cap">Auto-generated weekly report</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTEXT BAND ============ -->
+<div class="context">
+  <div class="wrap">
+    <p class="lead">Made for Malaysian neighbourhoods — RAs, RTs, JMBs and security committees.</p>
+    <div class="terms">
+      <span class="pill">Membership &amp; fees</span>
+      <span class="pill">AGM attendance</span>
+      <span class="pill">Security log book</span>
+      <span class="pill">Invoices &amp; vouchers</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FEATURES ============ -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="feat-head reveal">
+      <div>
+        <span class="eyebrow">Everything in one place</span>
+        <h2>One tidy home for the work your committee already does.</h2>
+      </div>
+      <p>From collecting the monthly security fee to printing the AGM attendance sheet — BUCA replaces the scattered spreadsheets, WhatsApp threads and shoeboxes of receipts.</p>
+    </div>
+
+    <div class="feat-grid">
+      <div class="feat reveal">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/><path d="M6 15h4"/></svg></div>
+        <h3>Membership payments</h3>
+        <p>Record fees paid by committee or residents, see who's up to date at a glance, and export the whole list with one click.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div>
+        <h3>Finances, invoices &amp; vouchers</h3>
+        <p>Store invoices and generate printable payment vouchers, so the books stay clean and the next treasurer isn't lost.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Security log book</h3>
+        <p>Track car entries, watch the weekly auto-generated security report, and understand loyal members, new sign-ups and dropouts.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2.5"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="m9 15 2 2 4-4"/></svg></div>
+        <h3>AGM attendance</h3>
+        <p>Register attendance for your AGM and print a clean attendance sheet afterwards — keeping you tidy for ROS requirements.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.5 3.1-6 7-6s7 2.5 7 6"/><path d="M3 11h2M19 11h2"/></svg></div>
+        <h3>One central database</h3>
+        <p>Consolidate users, households and cars in a single place — so the committee makes better, faster decisions together.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></div>
+        <h3>Effortless data import</h3>
+        <p>Bring your existing members and payments in from a spreadsheet using our template — and yes, real human help is included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPORT SPOTLIGHT ============ -->
+<section class="section spot">
+  <div class="wrap">
+    <div class="importviz reveal">
+      <div class="sheet">
+        <div class="sh-bar"><i></i><i></i><i></i><b>members.xlsx</b></div>
+        <table class="gridtbl">
+          <tr><th>Name</th><th>House</th><th>Phone</th></tr>
+          <tr><td>Aisyah Rahman</td><td>14 Jln Melur</td><td>012-…</td></tr>
+          <tr><td>Lim Wei Jie</td><td>27 Jln Cempaka</td><td>013-…</td></tr>
+          <tr><td>Suresh Kumar</td><td>3 Jln Kenanga</td><td>011-…</td></tr>
+          <tr><td>Nurul Huda</td><td>9 Jln Melati</td><td>017-…</td></tr>
+        </table>
+      </div>
+      <div class="arrowwrap">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+      </div>
+      <div class="sheet" style="border-color:#c6dcee;">
+        <div class="sh-bar" style="background:var(--brand-soft);border-color:#c6dcee;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand-deep)" stroke-width="2" stroke-linejoin="round"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg><b style="color:var(--brand-deep)">BUCA · 312 imported</b></div>
+        <table class="gridtbl">
+          <tr><th>Member</th><th>Status</th></tr>
+          <tr><td>Aisyah Rahman</td><td style="color:#1d6e4c;font-weight:700">✓ Added</td></tr>
+          <tr><td>Lim Wei Jie</td><td style="color:#1d6e4c;font-weight:700">✓ Added</td></tr>
+          <tr><td>Suresh Kumar</td><td style="color:#1d6e4c;font-weight:700">✓ Added</td></tr>
+          <tr><td>Nurul Huda</td><td style="color:#1d6e4c;font-weight:700">✓ Added</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <span class="eyebrow">Getting started</span>
+      <h2>Moving your data in is the easy part.</h2>
+      <p>Switching tools is usually the scariest step — so we made importing your members and payments the simplest thing you'll do all week. Download the template, fill it in, upload.</p>
+      <div class="flow">
+        <div class="flow-step"><span class="dot">1</span><span><b>Download our template</b> — a spreadsheet laid out exactly the way BUCA expects.</span></div>
+        <div class="flow-step"><span class="dot">2</span><span><b>Paste in your members</b> — names, houses, contacts and any payments you already track.</span></div>
+        <div class="flow-step"><span class="dot">3</span><span><b>Upload &amp; review</b> — BUCA checks every row and flags anything that needs a second look. <b>Assistance will be provided.</b></span></div>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-clay" href="manual/importing-data.html">Read the import guide <svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="feat-head reveal" style="margin-bottom:0;">
+      <div>
+        <span class="eyebrow">How it works</span>
+        <h2>Three steps to a calmer committee.</h2>
+      </div>
+      <p>No installation, no IT person, no training day. If you can use a spreadsheet, you can run your association on BUCA.</p>
+    </div>
+    <div class="how-grid">
+      <div class="step reveal">
+        <div class="num">01</div>
+        <h3>Create your association</h3>
+        <p>Sign up and set up your RA in minutes — name, area and the committee members who'll help manage it.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">02</div>
+        <h3>Import your members</h3>
+        <p>Bring in your households, cars and existing payments from your spreadsheet using our guided template.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">03</div>
+        <h3>Collect &amp; track</h3>
+        <p>Record fees, log security activity, run your AGM and watch the reports build themselves — week after week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FREE BAND ============ -->
+<section class="section free" id="free">
+  <div class="wrap">
+    <div class="panel reveal">
+      <div>
+        <span class="eyebrow" style="color:#ffd9b8;">Pricing</span>
+        <h2>Free for resident associations.</h2>
+        <p>Running your neighbourhood is volunteer work — so the software shouldn't add a bill. BUCA is free to use for your committee, with real human help when you're getting set up.</p>
+        <div class="hero-cta">
+          <a class="btn btn-clay btn-lg" href="#">Create your association <svg class="arr" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="free-aside">
+        <div class="free-quote">
+          <p>"We went from three spreadsheets and a folder of receipts to one screen the whole committee can actually read."</p>
+          <div class="by">
+            <div class="av">JT</div>
+            <div><b>Jeganathan T.</b><span>Treasurer · Klang Valley RA</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MANUAL TEASER ============ -->
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="feat-head reveal" style="margin-bottom:0;">
+      <div>
+        <span class="eyebrow">The manual</span>
+        <h2>Step-by-step guides, written for volunteers.</h2>
+      </div>
+      <p>Plain-language walkthroughs for every part of BUCA — no jargon, lots of screenshots-in-words, and a friendly tone.</p>
+    </div>
+    <div class="man-grid">
+      <a class="man-card reveal" href="manual/importing-data.html">
+        <div class="k">Most requested</div>
+        <h3>Importing your data</h3>
+        <p>Get your members and payments into BUCA from a spreadsheet — the right way, the first time.</p>
+        <span class="go">Read guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="man-card reveal" href="manual/membership-payments.html">
+        <div class="k">Payments</div>
+        <h3>Membership payments</h3>
+        <p>Record, track and export your security fees and membership dues — by committee or by resident.</p>
+        <span class="go">Read guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="man-card reveal" href="manual/security-log-book.html">
+        <div class="k">Security</div>
+        <h3>The security log book</h3>
+        <p>Log car entries, read the weekly report and understand your members at the guardhouse.</p>
+        <span class="go">Read guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:38px;">
+      <a class="btn btn-ghost" href="manual/index.html">Browse the full manual</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="cta" style="background:var(--paper-2);border-top:1px solid var(--line);">
+  <div class="wrap-narrow reveal">
+    <span class="eyebrow" style="justify-content:center;">Ready when you are</span>
+    <h2>The simplest resident association software around.</h2>
+    <p>Spend less time on admin and more time on the neighbourhood. Set your committee up on BUCA today — it's free.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary btn-lg" href="#">Create your association <svg class="arr" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-ghost btn-lg" href="manual/index.html">Read the manual</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <!-- LOGO: replace assets/buca-logo.png with your own logo file -->
+        <img src="assets/buca-logo.png" alt="BUCA">
+        <p>The simplest resident association software around — built for Malaysian neighbourhoods and the volunteers who run them.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <div class="foot-links">
+          <a href="#features">Features</a>
+          <a href="#how">How it works</a>
+          <a href="#free">Pricing</a>
+        </div>
+      </div>
+      <div>
+        <h4>Manual</h4>
+        <div class="foot-links">
+          <a href="manual/index.html">All guides</a>
+          <a href="manual/importing-data.html">Importing data</a>
+          <a href="manual/membership-payments.html">Membership payments</a>
+          <a href="manual/security-log-book.html">Security log book</a>
+        </div>
+      </div>
+      <div>
+        <h4>Association</h4>
+        <div class="foot-links">
+          <a href="#">Create association</a>
+          <a href="#">Contact us</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 BUCA. Made in Malaysia.</span>
+      <span>app.buca.my</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e);});
+    setTimeout(function(){ els.forEach(function(e){ e.classList.add('in'); }); }, 1500);
+  })();
+</script>
+
+</body>
+</html>

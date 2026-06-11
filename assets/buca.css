@@ -1,0 +1,174 @@
+/* ============================================================
+   BUCA — shared styles
+   Warm & community aesthetic · house/roof motif · trust blue
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap');
+
+:root{
+  /* surfaces */
+  --paper:#FBF7F0;
+  --paper-2:#F4ECDF;
+  --sand:#EFE4D2;
+  --card:#FFFFFF;
+  --card-tint:#FCF6EC;
+
+  /* ink */
+  --ink:#2B2723;
+  --ink-soft:#5C554B;
+  --ink-faint:#8B8276;
+
+  /* lines */
+  --line:#E8DFD0;
+  --line-strong:#DACFBA;
+
+  /* brand */
+  --brand:#3E7CB1;        /* logo blue */
+  --brand-deep:#2D5E8C;   /* button / hover */
+  --brand-soft:#E4EEF6;
+  --brand-tint:#F1F6FB;
+
+  /* accents */
+  --clay:#C36A3D;
+  --clay-deep:#A9542C;
+  --clay-soft:#F4E2D5;
+  --green:#2E8B63;
+  --green-soft:#E1F0E8;
+
+  /* type */
+  --serif:'Newsreader', Georgia, 'Times New Roman', serif;
+  --sans:'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+
+  /* shape */
+  --r-sm:8px;
+  --r-md:14px;
+  --r-lg:22px;
+  --r-xl:30px;
+
+  /* shadow — warm, soft */
+  --sh-sm:0 1px 2px rgba(60,45,25,.06), 0 2px 6px rgba(60,45,25,.05);
+  --sh-md:0 2px 4px rgba(60,45,25,.05), 0 12px 28px rgba(60,45,25,.09);
+  --sh-lg:0 4px 10px rgba(60,45,25,.07), 0 28px 60px rgba(60,45,25,.13);
+
+  --maxw:1180px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--paper);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{max-width:100%;display:block;}
+a{color:var(--brand-deep);text-decoration:none;}
+a:hover{color:var(--clay-deep);}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em;margin:0;color:var(--ink);}
+p{margin:0;}
+::selection{background:var(--clay-soft);color:var(--clay-deep);}
+
+/* layout helpers */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+.wrap-narrow{max-width:880px;margin:0 auto;padding:0 28px;}
+.section{padding:96px 0;}
+.eyebrow{
+  font-family:var(--sans);
+  font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--clay);display:inline-flex;align-items:center;gap:9px;
+}
+.eyebrow::before{
+  content:"";width:20px;height:1.5px;background:var(--clay);display:inline-block;border-radius:2px;
+}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--sans);font-weight:600;font-size:16px;
+  padding:13px 22px;border-radius:999px;cursor:pointer;border:1.5px solid transparent;
+  transition:transform .16s ease, box-shadow .16s ease, background .16s ease, color .16s ease;
+  line-height:1;white-space:nowrap;
+}
+.btn:active{transform:translateY(1px);}
+.btn-primary{background:var(--brand-deep);color:#fff;box-shadow:var(--sh-sm);}
+.btn-primary:hover{background:#27527c;color:#fff;box-shadow:var(--sh-md);transform:translateY(-1px);}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-strong);}
+.btn-ghost:hover{color:var(--ink);border-color:var(--ink-faint);background:rgba(255,255,255,.5);}
+.btn-clay{background:var(--clay);color:#fff;box-shadow:var(--sh-sm);}
+.btn-clay:hover{background:var(--clay-deep);color:#fff;transform:translateY(-1px);box-shadow:var(--sh-md);}
+.btn-lg{padding:16px 28px;font-size:17px;}
+.btn .arr{transition:transform .18s ease;}
+.btn:hover .arr{transform:translateX(3px);}
+
+/* ---------- pills / badges ---------- */
+.pill{
+  display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
+  font-weight:600;font-size:13.5px;padding:6px 13px;border-radius:999px;
+  background:var(--card);border:1px solid var(--line);color:var(--ink-soft);
+}
+.pill-free{background:var(--green-soft);border-color:#bfe0cf;color:#1d6e4c;}
+.pill-blue{background:var(--brand-soft);border-color:#c6dcee;color:var(--brand-deep);}
+
+/* ---------- header ---------- */
+.site-head{
+  position:sticky;top:0;z-index:50;
+  background:rgba(251,247,240,.82);
+  backdrop-filter:saturate(140%) blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.site-head .wrap{display:flex;align-items:center;gap:28px;height:72px;}
+.brand-link{display:flex;align-items:center;gap:10px;}
+.brand-link img{height:26px;width:auto;}
+.nav{display:flex;align-items:center;gap:28px;margin-left:8px;}
+.nav a{font-family:var(--sans);font-weight:500;font-size:15.5px;color:var(--ink-soft);}
+.nav a:hover{color:var(--ink);}
+.head-cta{margin-left:auto;display:flex;align-items:center;gap:14px;}
+
+/* ---------- footer ---------- */
+.site-foot{background:#211D18;color:#cabfae;padding:64px 0 38px;}
+.site-foot a{color:#cabfae;}
+.site-foot a:hover{color:#fff;}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;}
+.foot-grid h4{color:#fff;font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;}
+.foot-links{display:flex;flex-direction:column;gap:11px;font-size:15px;}
+.foot-brand img{height:24px;filter:brightness(0) invert(1);opacity:.95;margin-bottom:16px;}
+.foot-brand p{color:#9d9384;font-size:14.5px;max-width:30ch;line-height:1.6;}
+.foot-bottom{
+  margin-top:48px;padding-top:24px;border-top:1px solid #3a342b;
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  font-size:13.5px;color:#8b8175;
+}
+
+/* ---------- house mark ---------- */
+.housemark{display:inline-block;color:var(--brand);}
+
+/* ---------- generic card ---------- */
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  box-shadow:var(--sh-sm);
+}
+
+/* ---------- reveal on scroll (progressive enhancement) ---------- */
+.reveal{transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);}
+.js-anim .reveal{opacity:0;transform:translateY(18px);}
+.js-anim .reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1 !important;transform:none !important;transition:none;}
+  html{scroll-behavior:auto;}
+}
+
+/* ---------- responsive base ---------- */
+@media (max-width:860px){
+  .section{padding:64px 0;}
+  .nav{display:none;}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:32px;}
+  body{font-size:16px;}
+}
+@media (max-width:520px){
+  .wrap,.wrap-narrow{padding:0 20px;}
+  .foot-grid{grid-template-columns:1fr;}
+}
