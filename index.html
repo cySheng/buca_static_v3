@@ -220,7 +220,7 @@
       <a href="#free">Pricing</a>
     </nav>
     <div class="head-cta">
-      <a class="btn btn-primary" href="https://app.buca.my/public/companies/new">Create your association</a>
+      <a class="btn btn-primary" href="https://app.buca.my/public/companies/new" data-cta="create_association" data-cta-location="header">Create your association</a>
     </div>
   </div>
 </header>
@@ -233,7 +233,8 @@
       <h1>Run your association<br>without the <span class="accent">headache.</span></h1>
       <p class="lede">BUCA brings security fees, membership payments, AGMs and your security log book into one calm, simple place — built for the people who volunteer to keep the neighbourhood running.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary btn-lg" href="https://app.buca.my/public/companies/new">Create your association <svg class="arr" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-primary btn-lg" href="https://app.buca.my/public/companies/new" data-cta="create_association" data-cta-location="hero">Create your association <svg class="arr" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost btn-lg" href="https://demo.buca.my" data-cta="view_demo" data-cta-location="hero">Try the live demo</a>
         <a class="btn btn-ghost btn-lg" href="manual/index.html">Read the manual</a>
       </div>
       <div class="hero-trust">
@@ -445,7 +446,7 @@
         <h2>Free for resident associations.</h2>
         <p>Running your neighbourhood is volunteer work — so the software shouldn't add a bill. BUCA is free to use for your committee, with real human help when you're getting set up.</p>
         <div class="hero-cta">
-          <a class="btn btn-clay btn-lg" href="https://app.buca.my/public/companies/new">Create your association <svg class="arr" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-clay btn-lg" href="https://app.buca.my/public/companies/new" data-cta="create_association" data-cta-location="pricing">Create your association <svg class="arr" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
       <div class="free-aside">
@@ -504,7 +505,7 @@
     <h2>The simplest resident association software around.</h2>
     <p>Spend less time on admin and more time on the neighbourhood. Set your committee up on BUCA today — it's free.</p>
     <div class="hero-cta">
-      <a class="btn btn-primary btn-lg" href="https://app.buca.my/public/companies/new">Create your association <svg class="arr" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-primary btn-lg" href="https://app.buca.my/public/companies/new" data-cta="create_association" data-cta-location="cta_band">Create your association <svg class="arr" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn btn-ghost btn-lg" href="manual/index.html">Read the manual</a>
     </div>
   </div>
@@ -563,6 +564,22 @@
     els.forEach(function(e){io.observe(e);});
     setTimeout(function(){ els.forEach(function(e){ e.classList.add('in'); }); }, 1500);
   })();
+</script>
+
+<script>
+  // GA4 CTA click tracking: any element with data-cta fires a cta_click event.
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('[data-cta]');
+    if(!el || typeof gtag !== 'function') return;
+    gtag('event', 'cta_click', {
+      cta_name: el.getAttribute('data-cta'),
+      cta_location: el.getAttribute('data-cta-location') || 'unknown',
+      link_url: el.href || ''
+    });
+    if(el.getAttribute('data-cta') === 'create_association'){
+      gtag('event', 'generate_lead', { cta_location: el.getAttribute('data-cta-location') || 'unknown' });
+    }
+  });
 </script>
 
 </body>
