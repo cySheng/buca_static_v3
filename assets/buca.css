@@ -98,6 +98,8 @@ p{margin:0;}
 .btn-primary:hover{background:#27527c;color:#fff;box-shadow:var(--sh-md);transform:translateY(-1px);}
 .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-strong);}
 .btn-ghost:hover{color:var(--ink);border-color:var(--ink-faint);background:rgba(255,255,255,.5);}
+.btn-green{background:var(--green);color:#fff;box-shadow:var(--sh-sm);}
+.btn-green:hover{background:#246E4E;color:#fff;transform:translateY(-1px);box-shadow:var(--sh-md);}
 .btn-clay{background:var(--clay);color:#fff;box-shadow:var(--sh-sm);}
 .btn-clay:hover{background:var(--clay-deep);color:#fff;transform:translateY(-1px);box-shadow:var(--sh-md);}
 .btn-lg{padding:16px 28px;font-size:17px;}
